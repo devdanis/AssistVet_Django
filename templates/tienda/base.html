@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria AssistVet</title>
+    <!-- <link rel="stylesheet" href="normalize.css"> -->
+    <link rel="stylesheet" href= "{% static 'tienda/styles/estilos.css'%}?v={% now 'U' %}">
+    <link rel="shortcut icon" href="{% static 'tienda/images/logoasistvet.ico' %}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    
+    {% block header %}{% endblock header %}
+
+
+
+    <nav class="nav__bar">
+        <div class="nav__logo">
+            <a href="/index">
+                <img src="{% static 'tienda/images/logoasistvet.jpeg' %}" alt="Logo">
+            </a>
+        </div>
+        <div class="nav__title">
+            <a href="/index"><span class="pet"> PETSHOP &</span> <br> <span class="asist">ASISTENCIA</span> <br> <span class="vet">VETERINARIA</span></a>
+        </div>
+        <div class="nav__links">
+            <a href="#" id="productos">Productos</a>
+            <a href="/servicios" id="servicios">Servicios</a>
+            <a href="/index#ofertas">Ofertas</a>
+            <a href= "/index#contacto">Contacto</a>
+            <a href= "/index#dondeestamos">Donde estamos</a>
+        </div>
+        <!-- Aca comienza el Menu hamburguesa para pantallas pequeñas -->
+        <div class="nav__burger">
+            <a href="" onclick="menu()">
+                <img src="{% static 'tienda/images/bars-solid.svg' %}" alt="menu">
+            </a>
+        </div>
+        <!-- Aca termina el Menu hamburguesa para pantallas pequeñas -->
+        
+        <div class="nav__cart">
+            <a href="/cart">
+                <img src="{% static 'tienda/images/bx-cart.svg' %}" alt="carrito">
+            </a>
+        </div>
+    </nav>
+    <!-- Aqui empieza los menues de pantallas pequeñas -->
+    <div class= "nav__menu" id="nav__menu">
+        <a href="" onclick="submenuAlimentos()">Productos</a>
+        <a href="" onclick="submenuServicios()">Servicios</a>
+        <a href="/index#ofertas">Ofertas</a>
+        <a href="/index#contactanos_container">Contacto</a>
+        <a href="/index#dondeestamos">Donde estamos</a>
+    </div>
+    <div class= "nav__menu_submenu-alimentos" id="nav__menu_submenu-alimentos">
+        <a href="/perros">Alimento para Perros</a>
+        <a href="/gatos">Alimento para Gatos</a>
+    </div>
+    <div class= "nav__menu_submenu-servicios" id="nav__menu_submenu-servicios">
+        <a href="/servicios#vacunas">Vacunas</a>
+        <a href="/servicios#controlesmedicos">Controles Medicos</a>
+        <a href="/servicios#emergencias">Emergencias</a>
+    </div>
+    <!--  Aqui termina la parte de pantallas pequeñas -->
+    <!-- Aqui comienza el submenu de productos y Servicios  -->
+    <div class= "nav__prod" id="nav__prod">
+        <a href="/perros">Alimento y accesorios para Perros</a>
+        <a href="/gatos">Alimento y accesorios para Gatos</a>
+    </div>
+    <div class= "nav__serv" id="nav__serv">
+        <a href="/servicios#vacunas">Vacunas</a>
+        <a href="/servicios#controlesmedicos">Controles Medicos</a>
+        <a href="/servicios#emergencias">Emergencias</a>
+    </div>
+    <!-- Aqui termina el submenu de productos y Servicios  -->
+
+    {% block main %}{% endblock main %}
+
+
+    <footer class="footer">
+        <div>
+            <img class="footer_logo" src="{% static 'tienda/images/logoasistvet.jpeg' %}" alt="">
+        </div>
+        <div class="footer__contactanos">
+            <a href="/index#contactanos_container">Contactanos</a>
+        </div>
+        <!-- <div>
+            <a href="Contactanos">Whatsapp</a>
+        </div> -->
+        <div class="redes">
+            <a class="redes__a" href="https://www.facebook.com/asistvetpinamar/">
+                <img src="{% static 'tienda/images/bxl-facebook-circle.svg' %}" alt="">
+            </a>
+            <a class= 'redes__a' href="#">
+                <img src= "{% static 'tienda/images/bxl-instagram-alt.svg' %}" alt="">
+            </a>
+            <a class='redes__a' href="#">
+                <img src= "{% static 'tienda/images/bxl-whatsapp.svg' %}" alt="">
+            </a>
+        </div>
+    </footer>
+    
+    <script src="{% static 'tienda/js/index.js' %}"></script>
+    <script src="{% static 'tienda/js/gatos.js' %}"></script>
+    <script src="{% static 'tienda/js/perros.js' %}"></script>
+     
+</body>
+</html>

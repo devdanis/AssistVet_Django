@@ -1,0 +1,108 @@
+{% extends 'tienda/base.html' %}
+{% load static %}
+
+{% block header %}
+    <header id="carrusel-contenido">
+        <div id="carrusel-caja">
+            <div class="carrusel-elemento">
+                <video class="videos" src="{% static 'tienda/videos/video.mp4' %}" autoplay="true" muted="true" loop="true" alt="Los Angeles" ></video>
+            </div>
+            <div class="carrusel-elemento">   
+                <video class="videos" src="{% static 'tienda/videos/videoperro.mp4' %}" autoplay="true" muted="true" loop="true" alt="Chicago"></video>
+            </div>
+            <div class="carrusel-elemento">   
+                <video class="videos" src="{% static 'tienda/videos/videogatoassist.mp4' %}" autoplay="true" muted="true" loop="true" alt="New York"></video>                        
+            </div>
+        </div>
+    </header>
+    <section class="smallscreen_carrusel-contenido" id="smallscreen_carrusel-contenido">
+        <div class="smallscreen_carrusel-caja" id="smallscreen_carrusel-caja">
+            <div class="smallscreen_carrusel-elemento">
+                <img src="{% static 'tienda/images/perros_jugandoenjardin.jpg' %}" alt="">
+            </div>
+            <div class="smallscreen_carrusel-elemento">   
+                <img src="{% static 'tienda/images/perro_jugandoconflores.jpg' %}" alt="">
+            </div>
+            <div class="smallscreen_carrusel-elemento">   
+                <img src= "{% static 'tienda/images/vacunas_mascotas_respuesta_web.jpg' %}" alt="">                        
+            </div>
+        </div>
+    </section>
+
+{% endblock header %}
+    <!-- <header>  
+        <img src="imagenes/categoria_perro.jpg" alt="">
+    </header> -->
+    <!-- <header>
+        <div class="nav__video" id="video">
+           <video src="video.mp4" autoplay="true" muted="true" loop="true"></video>
+        </div>
+    </header> -->
+
+
+    {% block main %}
+    <main class="main">
+
+        <section>
+            <!-- <div class="main__question"> -->
+                <!-- <span class="main__question-span">Por favor seleccione su mascota</span> -->
+                <p class="p_seleccionMascota">Por favor seleccione su mascota</p>
+            <!-- </div> -->
+            <div class="main__selector">
+                <a href="/gatos" class="main__link">
+                    <img src="{% static 'tienda/images/categoriagato_recortada.png' %}" alt="Gatos" class="img_seleccionMascota main__cat">
+                </a>
+                <a href="/perros" class="main__link">
+                    <img src="{% static 'tienda/images/categoria_perro_recortada.png' %}" alt="Perros" class="img_seleccionMascota main__dog">
+                </a>
+            </div>
+        </section>
+        <article>
+            <h2 class="ofertas_text_h2" id="ofertas">
+                Ofertas que no debes perderte! <br> 20% de descuentos en estos alimentos!
+            </h2>
+            <div class="gallery_containerGrid">
+                <img src="{% static 'tienda/images/148066-removebg-preview.png' %}" alt="Especial Old Prince Adultos" class="gallery img-1">
+                <img src="{% static 'tienda/images/156157-removebg-preview.png' %}" alt="Royal Canin Adultos Medium" class="gallery img-2">
+                <img src="{% static 'tienda/images/150018-removebg-preview.png' %}" alt="Purina Excellent Adultos" class="gallery img-3">
+                <img src="{% static 'tienda/images/mini-puppy-removebg-preview.png' %}" alt="Royal Canin Mini Puppy" class="gallery img-4">
+                <img src="{% static 'tienda/images/7613287119605_1.png' %}" alt="Especial Purina Proplan Adultos" class="gallery img-5">
+                <img src="{% static 'tienda/images/old-prince-cordero-removebg-preview.png' %}" alt="Old Prince Adultos" class="gallery img-6">
+                <div class="cat_img-focus_container">
+                    <img src="" alt="" class="cat_img-focus_img">
+                    <img src="{% static 'tienda/images/bx-x.svg' %}" alt="Cerrar" class="cat_img-focus_bx-x">
+                    <p class="cat_img-focus_leyenda"></p>
+                </div>
+            </div>
+        </article>
+        <section class="contactanos_container" id="contactanos_container">
+            <h2 class="contactanos">Contactanos</h2>
+        </section>
+        <article id="form">
+            <div id="contacto">
+                <form action="https://formspree.io/f/moqbndob" method="POST">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre..">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="email..">
+                    <label for="mascota">Mascota</label>
+                    <select id="mascota" name="mascota">
+                    <option value="gato">Gato</option>
+                    <option value="perro">Perro</option>
+                    </select>
+                    <label for="descripcion">Consulta<br></label>
+                    <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Consulta.."></textarea>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </article>
+        <article class="articulo_mapa">
+            <div class="dondeestamos" id="dondeestamos">
+                <p class="dondeestamos__parrafo">Donde ubicarnos</p>
+                <img src="{% static 'tienda/images/localasistvet.jpeg' %}" alt="negocio">
+                <p class="dondeestamos__domicilio">Domicilio: Av. Espora 1518 <br> Localidad: Valeria del Mar <br> Provincia: Buenos Aires</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3180.4515777374318!2d-56.8971258848723!3d-37.14196057987973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959c9d11a1826da1%3A0xd88b03072107e5!2sVeterinaria%20Asistvet!5e0!3m2!1ses-419!2sar!4v1666205129439!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="map"></iframe>
+            </div>
+        </article>        
+    </main>
+    {% endblock main %}

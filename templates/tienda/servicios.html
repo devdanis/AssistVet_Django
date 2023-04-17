@@ -1,0 +1,33 @@
+{% extends 'tienda/base.html' %}
+{% load static %}
+
+{% block header %}
+<section class="servicios_carrusel-contenido" id="servicios_carrusel-contenido">
+    <div class="servicios_carrusel-caja" id="servicios_carrusel-caja">
+        <div class="servicios_carrusel-elemento">
+            <img src="{% static 'tienda/images/vacuna.jpg' %}" alt="" class="caratula caratula-1">
+        </div>
+        <div class="servicios_carrusel-elemento">   
+            <img src="{% static 'tienda/images/vacunacion-perro-gatos.jpg' %}" alt="" class="caratula caratula-2">
+        </div>
+        <div class="servicios_carrusel-elemento">   
+            <img src="{% static 'tienda/images/vacunas_mascotas_respuesta_web.jpg' %}" alt="" class="caratula caratula-3">                        
+        </div>
+    </div>
+</section>
+{% endblock header %}
+
+{% block main %}
+<main class="main">
+    <ul  class="lista_servicios">
+        <li class="servicios" id="vacunas">Vacunacion</li>
+        <img class="calendario" src="{% static 'tienda/images/calendariovacunacionhd.jpg' %}" alt="">
+        <li class="servicios" id="Controles">Controles Medicos</li>
+        <p class="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Minima maxime, nostrum quas eum inventore, <br> animi rerum earum fugiat neque provident iusto soluta aliquam quia, <br> error dolorum distinctio. Saepe, commodi sed.</p>
+        <li class="servicios" id="Emergencias">Emergencias</li>
+        <p class="lorem">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem in aperiam iure <br> blanditiis vero, necessitatibus totam, nisi consectetur <br> non ex quo magni reprehenderit eaque quos fuga sequi eum, ipsum omnis. <br><br> </p>
+    </ul>
+</main>
+
+{% endblock main %}
+

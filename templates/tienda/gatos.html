@@ -1,0 +1,47 @@
+{% extends 'tienda/base.html' %}
+
+{% load static %}
+{% block header %}
+    <section class="gatos_carrusel-contenido" id="gatos_carrusel-contenido">
+        <div id="gatos_carrusel-caja">
+            <div class="gatos_carrusel-elemento">
+                <img src="{% static 'tienda/images/cat_playing.jpg' %}" alt="" class="caratula caratula-1">
+            </div>
+            <div class="gatos_carrusel-elemento">   
+                <img src="{% static 'tienda/images/cat_x_2_playing.jpg' %}" alt="" class="caratula caratula-2">
+            </div>
+            <div class="gatos_carrusel-elemento">   
+                <img src="{% static 'tienda/images/cat_grey.jpg' %}" alt="" class="caratula caratula-3">                        
+            </div>
+            <div class="gatos_carrusel-elemento">   
+                <img src="{% static 'tienda/images/cat_snow.jpg' %}" alt="" class="caratula caratula-4">                        
+            </div>
+            <div class="gatos_carrusel-elemento">   
+                <img src="{% static 'tienda/images/cat_eyebicolor.jpg' %}" alt="" class="caratula caratula-4">                        
+            </div>
+        </div>
+    </section>
+{% endblock header %}
+    <!-- <div class="nav__video">
+        <video src="videogatoassist.mp4" autoplay="true" muted="true" loop="true"></video>
+    </div> -->
+{% block main %}
+    <main>      
+        <h1 class="h1_food_cats">Alimento para Gatos</h1>
+        <section class="gallery_containerGrid">
+            <img src="{% static 'tienda/images/148066-removebg-preview.png' %}" alt="Especial Old Prince Adultos" class="gallery img-1">
+            <img src="{% static 'tienda/images/Agility_Cat_Adultos_1000x1000.png' %}" alt="Agility Adultos" class="gallery img-2">
+            <img src="{% static 'tienda/images/150018-removebg-preview.png' %}" alt="Purina Excellent Adultos" class="gallery img-3">
+            <img src="{% static 'tienda/images/cats_proplan.png' %}" alt="Purina Proplan Adultos 1 a 7 años" class="gallery img-4">
+            <img src="{% static 'tienda/images/7613287119605_1.png' %}" alt="Especial Purina Proplan Adultos" class="gallery img-5">
+            <img src="{% static 'tienda/images/unik-removebg-preview.png' %}" alt="Especial Unik Cachorro y Adulto" class="gallery img-6">
+            <div class="cat_img-focus_container">
+                <img src="" alt="" class="cat_img-focus_img">
+                <img src="{% static 'tienda/images/bx-x.svg' %}" alt="Cerrar" class="cat_img-focus_bx-x">
+                <p class="cat_img-focus_leyenda"></p>
+            </div>
+        </section>
+        <p class ='contactenos'>Para conocer los precios de los alimentos <a href="index#contactanos_container">contactenos aqui</a></p>
+
+    </main>
+{% endblock main %}

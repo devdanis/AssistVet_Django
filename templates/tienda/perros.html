@@ -1,0 +1,50 @@
+{% extends 'tienda/base.html' %}
+{% load static %}
+
+{% block header %}
+
+<section class="gatos_carrusel-contenido" id="gatos_carrusel-contenido">
+    <div id="gatos_carrusel-caja">
+        <div class="gatos_carrusel-elemento">
+            <img src="{% static 'tienda/images/perrojugandoenjardim.jpg' %}" alt="" class="caratula caratula-1">
+        </div>
+        <div class="gatos_carrusel-elemento">   
+            <img src="{% static 'tienda/images/perrocomiendo.jpg' %}" alt="" class="caratula caratula-2">
+        </div>
+        <div class="gatos_carrusel-elemento">   
+            <img src="{% static 'tienda/images/cachorrosencarro.jpg' %}" alt="" class="caratula caratula-3">                        
+        </div>
+        <div class="gatos_carrusel-elemento">   
+            <img src="{% static 'tienda/images/salchichaspeludosjugando.jpg' %}" alt="" class="caratula caratula-4">                        
+        </div>
+        <div class="gatos_carrusel-elemento">   
+            <img src="{% static 'tienda/images/perro_al_viento.jpg' %}" alt="" class="caratula caratula-4">                        
+        </div>
+    </div>
+</section>
+<!-- <div class="nav__video">
+    <video src="videoperro.mp4" autoplay="true" muted="true" loop="true"></video>
+</div> -->
+
+{% endblock header %}
+
+{% block main %}
+<main class="main">
+    <p class="h1_food_cats h1">Alimento para Perros</p>
+    <section class="gallery_containerGrid">
+        <img src="{% static 'tienda/images/150002-removebg-preview.png' %}" alt="Maintenance Criadores Adultos x 22kg" class="gallery img-1">
+        <img src="{% static 'tienda/images/156157-removebg-preview.png' %}" alt="Royal Canin Adultos Medium" class="gallery img-2">
+        <img src="{% static 'tienda/images/7613038202709-3-removebg-preview.png' %}" alt="Purina Excellent Skin Care" class="gallery img-3">
+        <img src="{% static 'tienda/images/mini-puppy-removebg-preview.png' %}" alt="Royal Canin Mini Puppy" class="gallery img-4">
+        <img src="{% static 'tienda/images/7790187340602_01-removebg-preview.png' %}" alt="Royal Canin Adultos" class="gallery img-5">
+        <img src="{% static 'tienda/images/old-prince-cordero-removebg-preview.png' %}" alt="Old Prince Adultos" class="gallery img-6">
+        <div class="cat_img-focus_container">
+            <img src="" alt="" class="cat_img-focus_img">
+            <img src="{% static 'tienda/images/bx-x.svg' %}" alt="Cerrar" class="cat_img-focus_bx-x">
+            <p class="cat_img-focus_leyenda"></p>
+        </div>
+    </section>
+    <p class ='contactenos'>Para conocer los precios de los alimentos <a href="index#contactanos_container">contactenos aqui</a></p>
+
+</main>
+{% endblock main %}
