@@ -20,3 +20,6 @@ def gatos(request):
 def servicios(request):
     #template = loader.get_template('servicios.html')
     return render(request, 'tienda/servicios.html')
+
+def cart(request):
+    return render(request, 'tienda/cart.html')
