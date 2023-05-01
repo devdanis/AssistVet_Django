@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body onload="cambiar()">
+        <section id="carrusel_de_videos">
+            <div id="carrusel-caja"></div>
+        </section>
+        <section
+            class="smallscreen_carrusel-contenido"
+            id="carrusel_de_imagenes"
+        >
+            <div
+                class="smallscreen_carrusel-caja"
+                id="smallscreen_carrusel-caja"
+            >
+                <div class="smallscreen_carrusel-elemento">
+                    <img
+                        src="assets/images/index/perros_jugandoenjardin.jpg"
+                        alt=""
+                    />
+                </div>
+                <div class="smallscreen_carrusel-elemento">
+                    <img
+                        src="assets/images/index/perro_jugandoconflores.jpg"
+                        alt=""
+                    />
+                </div>
+                <div class="smallscreen_carrusel-elemento">
+                    <img
+                        src="assets/images/index/vacunas_mascotas_respuesta_web.jpg"
+                        alt=""
+                    />
+                </div>
+            </div>
+        </section>
+        <div>Hola Mundo</div>
+        <style>
+            .display_none {
+                display: none;
+            }
+
+            .display_block {
+                display: block;
+            }
+
+            @-webkit-keyframes automatizacion {
+                0% {
+                    margin-left: 0;
+                }
+                30% {
+                    margin-left: 0;
+                }
+                35% {
+                    margin-left: -100%;
+                }
+                65% {
+                    margin-left: -100%;
+                }
+                70% {
+                    margin-left: -200%;
+                }
+                95% {
+                    margin-left: -200%;
+                }
+                100% {
+                    margin-left: 0;
+                }
+            }
+            @keyframes automatizacion {
+                0% {
+                    margin-left: 0;
+                }
+                30% {
+                    margin-left: 0;
+                }
+                35% {
+                    margin-left: -100%;
+                }
+                65% {
+                    margin-left: -100%;
+                }
+                70% {
+                    margin-left: -200%;
+                }
+                95% {
+                    margin-left: -200%;
+                }
+                100% {
+                    margin-left: 0;
+                }
+            }
+            #carrusel-caja {
+                -moz-animation: automatizacion 15s infinite linear;
+                -o-animation: automatizacion 15s infinite linear;
+                -webkit-animation: automatizacion 15s infinite linear;
+                animation: automatizacion 15s infinite linear;
+                -webkit-transition: all 0.75s ease;
+                -moz-transition: all 0.75s ease;
+                -ms-transition: all 0.75s ease;
+                -o-transition: all 0.75s ease;
+                transition: all 0.75s ease;
+                height: 500px;
+                width: 300%;
+            }
+            #carrusel_de_videos {
+                margin: 0 auto;
+                overflow: hidden;
+                text-align: left;
+                position: absolute;
+                z-index: -100;
+            }
+
+            .carrusel-elemento {
+                float: left;
+                width: 33.333%;
+            }
+
+            .videos {
+                /* height: 500px; */
+                width: 100%;
+            }
+
+            .smallscreen_carrusel-caja {
+                -moz-animation: automatizacion 15s infinite linear;
+                -o-animation: automatizacion 15s infinite linear;
+                -webkit-animation: automatizacion 15s infinite linear;
+                animation: automatizacion 15s infinite linear;
+                -webkit-transition: all 0.75s ease;
+                -moz-transition: all 0.75s ease;
+                -ms-transition: all 0.75s ease;
+                -o-transition: all 0.75s ease;
+                transition: all 0.75s ease;
+                height: 30vw;
+                width: 300%;
+            }
+            #carrusel_de_imagenes {
+                /*display: none;*/
+                margin: 15vw auto;
+                overflow: hidden;
+                text-align: center;
+                position: absolute;
+            }
+
+            .smallscreen_carrusel-elemento {
+                height: 35vw;
+                float: left;
+                width: 33.333%;
+            }
+
+            .smallscreen_carrusel-elemento img {
+                height: 100%;
+                width: auto;
+            }
+            /*
+@media only screen and (max-width: 1064px) {
+
+    #carrusel_de_videos {
+        display: none;
+    }
+    #carrusel_de_imagenes {
+        display: block;
+    }
+} 
+*/
+        </style>
+
+        <script>
+            function cambiar() {
+                // Obtener el elemento HTML por su ID
+                var contenido = document.getElementById("carrusel-caja");
+                // Definir el código HTML que deseas agregar
+                var codigoHTML =
+                    '<div class="carrusel-elemento" ><video class="videos" src="assets/videos/video.mp4" autoplay="true" muted="true" loop="true" alt="Los Angeles" ></video></div>';
+                codigoHTML +=
+                    '<div class="carrusel-elemento"><video class="videos" src="assets/videos/videoperro.mp4" autoplay="true" muted="true" loop="true" alt="Chicago"></video></div>';
+                codigoHTML =
+                    '<div class="carrusel-elemento"><video class="videos" src="assets/videos/videogatoassist.mp4" autoplay="true" muted="true" loop="true" alt="New York"></video></div>';
+                // Agregar el código HTML al contenido del elemento
+                contenido.innerHTML = codigoHTML;
+                var element = document.getElementById("carrusel_de_imagenes");
+                element.classList.add("display_none");
+            }
+        </script>
+    </body>
+</html>

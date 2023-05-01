@@ -1,0 +1,84 @@
+.contactanos_container {
+    display: flex;
+    margin-top: 3vw;
+    position: relative;
+    height: auto;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactanos {
+    font-size: 2vw;
+    font-family: var(--fuente);
+    text-align: center;
+}
+
+#contacto {
+    position: relative;
+    left: 30%;
+    margin-top: 3vw;
+    width: 40vw;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 1vw;
+}
+
+#contacto form label {
+    font-size: 15px;
+    font-family: var(--fuente);
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="email"],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #490377;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+textarea {
+    margin-top: 5px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 1064px) {
+    #contacto {
+        left: 0;
+        margin: 3vw;
+        width: 100%;
+    }
+
+    #contacto form label {
+        font-size: 12px;
+    }
+
+    .contactanos {
+        font-size: 15px;
+    }
+}

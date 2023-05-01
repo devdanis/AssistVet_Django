@@ -1,0 +1,58 @@
+.lista_servicios {
+    text-align: center;
+    position: relative;
+    margin-top: 35vw;
+    list-style-type: none;
+}
+
+.servicios {
+    margin: 1vw;
+    font-family: var(--fuente);
+    font-size: 30px;
+}
+
+.calendario {
+    position: relative;
+    height: 40vw;
+}
+
+.lorem {
+    font-size: 15px;
+    font-family: var(--fuente);
+}
+
+@media only screen and (max-width: 1064px) {
+    .lista_servicios {
+        text-align: center;
+        position: relative;
+        margin-top: 30vw;
+        list-style-type: none;
+    }
+
+    .servicios {
+        margin: 1vw;
+        /* text-align: center; */
+        font-family: var(--fuente);
+        font-size: 30px;
+    }
+
+    .calendario {
+        position: relative;
+        height: 50vw;
+    }
+
+    .lorem {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 1065px) and (max-width: 1200px) {
+    .calendario {
+        position: relative;
+        height: 40vw;
+    }
+
+    .lorem {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,79 @@
+//Escala de grises
+$black: #000; //Black
+$gray1: #111; //Almost black
+$gray2: #222; //Tinted black
+$gray3: #333; //Light black
+$gray4: #444; //Pale black
+$gray5: #555; //Dark gray
+$gray6: #666; //Shaded gray
+$gray7: #777; //Medium gray
+$gray8: #888; //Tinted gray
+$gray9: #999; //Light gray
+$gray10: #aaa; //Pale gray
+$gray11: #bbb; //Silver
+$gray12: #ccc; //Dark white
+$gray13: #ddd; //Shaded white
+$gray14: #eee; //Almost white
+$white: #fff; //White
+
+//Colores logo veterinaria
+$color1: #3ab9c8; //hsl(186, 56%, 51%)
+$color2: #5e3383; //hsl(272, 44%, 36%)
+$color3: #f6a51e; //hsl(38, 92%, 54%)
+$color4: #a8c83f; //hsl(74, 55%, 52%)
+
+// escala primario celeste
+$color-celeste-0: #3ab7c8; // Principal celeste*/
+$color-celeste-1: #a0e3ec;
+$color-celeste-2: #64cad9;
+$color-celeste-3: #15a5b9;
+$color-celeste-4: #027e8f;
+
+// transparentes celeste
+$color5-celeste-4-transparente: #027e8f99;
+
+// escala primario violeta
+
+$color-violeta-0: #5e3383; // Principal violeta*/
+$color-violeta-1: #af96c4;
+$color-violeta-2: #7e599f;
+$color-violeta-3: #481c6e;
+$color-violeta-4: #2f0752;
+
+// transparentes violeta
+$color-verde-transparente: #5e338399;
+
+// escala primario naranja
+
+$color-naranja-0: #f6a51e; // Principal naranja*/
+$color-naranja-1: #ffd185;
+$color-naranja-2: #ffbe52;
+$color-naranja-3: #c77d02;
+$color-naranja-4: #9a6000;
+
+// transparentes
+$color-naranja-3-transparente: #c77d0299;
+
+// escala primario verde
+
+$color-verde-0: #a8c83f; // Principal verde*/
+$color-verde-1: #e6f7ac;
+$color-verde-2: #cde96f;
+$color-verde-3: #88a91d;
+$color-verde-4: #668403;
+
+// transparentes verde
+$color-verde-transparente: #66840399;
+
+// Colores de carteles, alertas
+// Colores de Bootstrap5: https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss
+$blue: #0d6efd !default;
+$indigo: #6610f2 !default; //important
+$purple: #6f42c1 !default;
+$pink: #d63384 !default;
+$red: #dc3545 !default; //danger
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default; //warning
+$green: #198754 !default; //checked-succesfull
+$teal: #20c997 !default;
+$cyan: #0dcaf0 !default;

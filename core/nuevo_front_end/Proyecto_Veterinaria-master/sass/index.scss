@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+@use "c_resets/body";
+
+@use "d_layout/header_copy";
+
+@use "d_layout/header_position";
+
+@use "d_layout/navbar";
+
+@use "d_layout/footer";
+
+@use "e_sections_and_articles/landing_page";
+
+@use "e_sections_and_articles/index_donde_estamos";
+
+@use "e_sections_and_articles/index_quienes_somos";
+
+@use "f_components/empty_header";

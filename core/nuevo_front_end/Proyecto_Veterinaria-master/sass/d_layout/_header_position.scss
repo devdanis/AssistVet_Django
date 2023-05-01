@@ -1,0 +1,50 @@
+/* Estilos para pantallas pequeñas */
+@media all and (max-width: 575px) {
+.header_position{
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    section{
+        position:relative;
+    }
+}
+.menu{
+    ul{
+        position: absolute;
+        bottom: 4.25rem;
+        left:0;
+        background-color: #5E3383de;
+    }
+}
+}
+/* Estilos para pantallas medianas */
+@media all and (min-width: 575px) {
+    .header_position{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+        section{
+        position:relative;
+    }
+}
+.menu{
+    ul{
+        position: absolute;
+        top: 4.25rem;
+        left: 0;
+        background-color: #5E3383de;
+    }
+}
+}
+
+/* Estilos para pantallas grandes */
+@media all and (min-width: 992px) {
+    .menu{
+    ul{
+        position: relative;
+        top: 0;
+        right: 0;
+        background-color: transparent;
+    }
+}
+}
