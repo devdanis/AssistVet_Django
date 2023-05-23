@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Veterinaria AssistVet{% endblock titulo %}
+
+{% block css %} {% load static %}<link rel="stylesheet" href="{% static '/core/css/index.css' %}" />{% endblock css %}
+
+{% block content %}
+        <main>
+            <h2>Empleados</h2>
+            <br>
+            <a href="{% url 'administrador_empleados_crear_empleado' %}">Crear empleado</a>
+            <br>
+            <a href="{% url 'administrador_empleados_leer_empleado' %}">Leer empleado</a>
+            <br>
+            <a href="{% url 'administrador_empleados_modificar_empleado' %}">Modificar empleado</a>
+            <br>
+            <a href="{% url 'administrador_empleados_eliminar_empleado' %}">Eliminar empleado</a>
+        </main>
+{% endblock content %}
+
+{% block javascript %}
+<script src="{% static '/core/javascript/hamburguer_menu.js' %}"></script>
+{% endblock javascript %}

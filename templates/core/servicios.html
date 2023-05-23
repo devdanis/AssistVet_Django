@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Veterinaria AssistVet: Servicios{% endblock titulo %}
+
+{% block css %} {% load static %}<link rel="stylesheet" href="{% static '/core/css/servicios.css' %}" />{% endblock css %}
+
+{% block content %}
+
+        <div class="carousel_de_servicios">
+            <section
+            class="servicios_carrusel-contenido"
+            id="servicios_carrusel-contenido"
+        >
+                <div class="servicios_carrusel-caja" id="servicios_carrusel-caja">
+                    <div class="servicios_carrusel-elemento">
+                        <img
+                            src="{% static '/core/assets/images/servicios/vacuna.jpg' %}"
+                            alt=""
+                            class="caratula caratula-1"
+                        />
+                    </div>
+                    <div class="servicios_carrusel-elemento">
+                        <img
+                            src="{% static '/core/assets/images/servicios/vacunacion-perro-gatos.jpg' %}"
+                            alt=""
+                            class="caratula caratula-2"
+                        />
+                    </div>
+                    <div class="servicios_carrusel-elemento">
+                        <img
+                            src="{% static '/core/assets/images/servicios/imgbin_cat-dog-vaccine-feline-vaccination-png.png' %}"
+                            alt=""
+                            class="caratula caratula-3"
+                        />
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+
+        <main class="main">
+            <ul class="lista_servicios">
+                <li class="servicios" id="vacunas">Vacunacion</li>
+                <img
+                    class="calendario"
+                    src="{% static '/core/assets/images/servicios/calendariovacunacionhd.jpg' %}"
+                    alt=""
+                />
+                <li class="servicios" id="Controles">Controles Medicos</li>
+                <p class="lorem">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    <br />
+                    Minima maxime, nostrum quas eum inventore, <br />
+                    animi rerum earum fugiat neque provident iusto soluta
+                    aliquam quia, <br />
+                    error dolorum distinctio. Saepe, commodi sed.
+                </p>
+                <li class="servicios" id="Emergencias">Emergencias</li>
+                <p class="lorem">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Autem in aperiam iure <br />
+                    blanditiis vero, necessitatibus totam, nisi consectetur
+                    <br />
+                    non ex quo magni reprehenderit eaque quos fuga sequi eum,
+                    ipsum omnis. <br /><br />
+                </p>
+            </ul>
+        </main>
+{% endblock content %}
+
+{% block javascript %}
+        <script src="{% static '/core/javascript/index.js' %}"></script>
+        <script src="{% static '/core/javascript/perros.js' %}"></script>
+        <script src="{% static '/core/javascript/hamburguer_menu.js' %}"></script>
+{% endblock javascript %}

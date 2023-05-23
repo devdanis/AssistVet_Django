@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!--meta name="viewport" content="width=device-width, initial-scale=1.0" /-->
+        <!--meta name="viewport" content="minimum-scale=1" /-->
+        <meta
+            name="viewport"
+            content="height=device-height, 
+                    width=device-width, initial-scale=1.0, 
+                    minimum-scale=1.0, maximum-scale=1.0, 
+                    user-scalable=no, target-densitydpi=device-dpi"
+        />
+
+        <title>{% block titulo %}{% endblock titulo %}</title>
+        {% load static %}
+        {% block css %}{% endblock css %}
+        <link rel="icon" type="image/x-icon" href="{% static '/core/assets/images/head/logoasistvet-favicon.png' %}" />
+        <meta
+            name="description"
+            content="Veterinaria AssistVet: Todo para tu mascota. Alimentos balanceados, atención médica, servicios de peluquería y mucho, mucho más!!!"
+        />
+        <link
+            rel="apple-touch-icon"
+            href="{% static '/core/assets/images/head/logoasistvet-icon.png' %}"
+        />
+        <meta name="theme-color" content="#5e3383"/>
+        <link rel="canonical" href="https://glittery-sherbet-f4dc32.netlify.app/#" />
+        <!--colocar direccion real cuando se haga el despliegue-->
+        <meta property="og:title" content="Veterinaria AssistVet" />
+        <meta
+            property="og:description"
+            content="Veterinaria AssistVet: Todo para tu mascota. Alimentos balanceados, atención médica, servicios de peluquería y mucho, mucho más!!!"
+        />
+        <meta
+            property="og:image"
+            content="{% static '/core/assets/images/head/logoasistvet-png.png' %}"
+        />
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:url" content="https://glittery-sherbet-f4dc32.netlify.app/#" />
+        <!--colocar direccion real cuando se haga el despliegue-->
+    </head>
+    <body>
+        <header class="header_position">
+            <section>
+                <section>
+                    <div>
+                        <div>
+                            <img
+                                src="{% static '/core/assets/images/header/assisvet.svg' %}"
+                                alt="veterinaria assisvet"
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <h1>
+                                <a href="{% url 'index' %}">
+                                    <p>PETSHOP &</p>
+                                    <p>ASSISTENCIA VETERINARIA</p>
+                                </a>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="navbar">
+                        <button class="menu-btn">
+                            <img
+                                src="{% static '/core/assets/images/navbar/hamburguer-menu.svg' %}"
+                                alt="Abrir menú"
+                            />
+                            <img
+                                class="none"
+                                src="{% static '/core/assets/images/navbar/close-hamburguer-menu.svg' %}"
+                                alt="cerrar menú"
+                            />
+                        </button>
+                        <nav class="menu">
+                            <ul>
+                                <li>
+                                    <a href="{% url 'productos' %}">
+                                        <div>
+                                            <div>
+                                                <img
+                                                    src="{% static '/core/assets/images/navbar/bx-cart.svg' %}"
+                                                    alt="productos"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div>Productos</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'servicios' %}"
+                                        ><div>
+                                            <div>
+                                                <img
+                                                    src="{% static '/core/assets/images/navbar/servicios_inv_transparente 1.svg' %}"
+                                                    alt="servicios"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div>Servicios</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'index' %}#quienes_somos"
+                                        ><div>
+                                            <div>
+                                                <img
+                                                    src="{% static '/core/assets/images/navbar/icons8-veterinarian-female-50 1.svg' %}"
+                                                    alt="nosotros"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div>Nosotros</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'index' %}#donde_estamos"
+                                        ><div>
+                                            <div>
+                                                <img
+                                                    src="{% static '/core/assets/images/navbar/icons8-location-50 1.svg' %}"
+                                                    alt="ubicacion"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div>Dónde estamos</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'contacto' %}"
+                                        ><div>
+                                            <div>
+                                                <img
+                                                    src="{% static '/core/assets/images/navbar/icons8-mail-48 1.svg' %}"
+                                                    alt="contacto"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div>Contacto</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </section>
+            </section>
+        </header>
+
+        {% block content %}
+        {% endblock content %}
+        <footer>
+            <section>
+                <div>
+                    <img
+                        src="{% static '/core/assets/images/footer/logoasistvet.jpeg' %}"
+                        alt="logo de asist vet"
+                    />
+                </div>
+                <div>
+                    <a href="#">Seguinos en ...</a>
+                </div>
+                <div>
+                    <a
+                        class="redes__a"
+                        href="https://www.facebook.com/asistvetpinamar/"
+                    >
+                        <img
+                            src="{% static '/core/assets/images/footer/social_media/facebook.svg' %}"
+                            alt="facebook"
+                        />
+                    </a>
+                    <a class="redes__a" href="#">
+                        <img
+                            src="{% static '/core/assets/images/footer/social_media/instagram.svg' %}"
+                            alt="instagram"
+                        />
+                    </a>
+                    <a class="redes__a" href="#">
+                        <img src="{% static '/core/assets/images/footer/social_media/whatsapp.svg' %}" alt="whatsapp" />
+                    </a>
+                </div>
+            </section>
+            <section>
+                <div>Copyright ©.Todos los derechos reservados.</div>
+                <div>Django-CAC 4.0- Año 2023.</div>
+                <div><span>Grupo 16</span> de la Comision 2219.</div>
+            </section>
+            <section>
+                <div>
+                    <img
+                        src="{% static '/core/assets/images/footer/codo_a_codo/Buenos_Aires_Ciudad.png' %}"
+                        alt="Buenos aires ciudad"
+                    />
+                </div>
+                <div>
+                    <img
+                        src="{% static '/core/assets/images/footer/codo_a_codo/Agencia_de_aprendizaje.png' %}"
+                        alt="Agencia de Aprendizaje a lo largo de la vida"
+                    />
+                </div>
+                <div>
+                    <img
+                        src="{% static '/core/assets/images/footer/codo_a_codo/BA-Educacion.png' %}"
+                        alt="Buenos Aires Educacion"
+                    />
+                </div>
+                <div>
+                    <img
+                        src="{% static '/core/assets/images/footer/codo_a_codo/logo_codo_a_codo.png' %}"
+                        alt="codo a codo"
+                    />
+                </div>
+                <div>
+                    <img
+                        src="{% static '/core/assets/images/footer/codo_a_codo/django-logo.png' %}"
+                        alt="django"
+                    />
+                </div>
+                <div>
+                    <img
+                        src="{% static '/core/assets/images/footer/codo_a_codo/python-logo.png' %}"
+                        alt="python"
+                    />
+                </div>
+            </section>
+            <section class="empty_footer"></section>
+        </footer>
+        {% block javascript %}
+        {% endblock javascript %}
+    </body>
+</html>

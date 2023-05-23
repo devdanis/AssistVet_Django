@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Veterinaria Asist Vet: Iniciar Sesión{% endblock titulo %}
+
+{% block css %} {% load static %}<link rel="stylesheet" href="{% static '/core/css/iniciar_sesion.css' %}" />{% endblock css %}
+
+{% block content %}
+        <main>
+            <section class="iniciar_sesion">
+                <div>
+                    <h2>Iniciar sesión</h2>
+                    <img
+                        src="{% static '/core/assets/images/iniciar_sesion/logoasistvet-png.png' %}"
+                        alt="logo assistvet"
+                    />
+                </div>
+                <div>
+                    <form action="show-data.html" target="_blank">
+                        <div>
+                            <label for="nombre_de_usuario"
+                                >Nombre de Usuario:
+                            </label>
+                            <input
+                                size="10"
+                                type="text"
+                                name="nombre_de_usuario"
+                                placeholder="Nombre de usuario"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="contraseña">Contraseña: </label>
+                            <input
+                                type="password"
+                                size="10"
+                                name="contraseña"
+                                placeholder="Contraseña"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <button
+                                type="submit"
+                                formaction="{% url 'crear_carrito_de_compra' %}"
+                                formtarget="_self"
+                            >
+                                Ir a Comprar
+                                <img
+                                    src="{% static '/core/assets/images/iniciar_sesion/bx-cart.svg' %}"
+                                    alt="carrito_de_compras"
+                                />
+                            </button>
+                            <!--input type="submit" value="Ingresar"-->
+                            <p>¿Olvidó su contraseña?</p>
+                            <p>
+                                Restablecela
+                                <a href="{% url 'modificar_datos' %}">acá.</a>
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                ¿Todavía no te registraste en Veterinaria
+                                AsistVet?
+                            </p>
+                            <p>
+                                Crea tu cuenta <a href="{% url 'registro' %}">acá.</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <a href="{% url 'productos' %}"
+                        >Volver a Productos
+                        <img src="{% static '/core/assets/images/iniciar_sesion/bx-cart.svg' %}" alt="carrito"
+                    /></a>
+                </div>
+            </section>
+            <a href="{% url 'crear_carrito_de_compra' %}">Ir al carrito de compras</a>
+        </main>
+{% endblock content %}
+
+{% block javascript %}
+<script src="{% static '/core/javascript/hamburguer_menu.js' %}"></script>
+{% endblock javascript %}

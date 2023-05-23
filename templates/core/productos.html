@@ -1,0 +1,431 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Veterinaria Asist Vet: Productos{% endblock titulo %}
+
+{% block css %} {% load static %}<link rel="stylesheet" href="{% static '/core/css/productos.css' %}" />{% endblock css %}
+
+{% block content %}
+        <section class="derivador">
+            <div>
+                <a href="{% url 'productos' %}#productos_perros"
+                    >Alimento para Perros<img
+                        src="{% static '/core/assets/images/productos/derivador/shop-dog 1.svg' %}"
+                        alt="alimento para perros"
+                /></a>
+            </div>
+            <div>
+                <a href="{% url 'productos' %}#productos_gatos"
+                    >Alimento para Gatos<img
+                        src="{% static '/core/assets/images/productos/derivador/shop-cat.png' %}"
+                        alt="alimento para gatos"
+                /></a>
+            </div>
+            <div>
+                <a href="{% url 'productos' %}#productos_accesorios"
+                    >Accesorios<img
+                        src="{% static '/core/assets/images/productos/derivador/dog-bowl.png' %}"
+                        alt="accesorios" /><img
+                        src="{% static '/core/assets/images/productos/derivador/dog-collar.png' %}"
+                        alt="accesorios"
+                /></a>
+            </div>
+            <div>
+                <a href="{% url 'productos' %}#productos_juguetes"
+                    >Juguetes<img
+                        src="{% static '/core/assets/images/productos/derivador/beach-ball.png' %}"
+                        alt="juguetes"
+                /></a>
+            </div>
+            <div>
+                <a href="{% url 'productos' %}#productos_ofertas"
+                    >Ofertas<img
+                        src="{% static '/core/assets/images/productos/derivador/offer.png' %}"
+                        alt="ofertas"
+                /></a>
+            </div>
+        </section>
+        <main>
+            <!--Perros-->
+            <div class="carrousel_de_perros">
+                <section class="carrusel-contenido" id="productos_perros">
+                    <div id="gatos_carrusel-caja">
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_perros/perrojugandoenjardim.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_perros/perrocomiendo.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_perros/cachorrosencarro.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_perros/salchichaspeludosjugando.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_perros/perro_al_viento.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <section class="stock_productos">
+                <h2 class="h2_food_cats" id="productos_perros">
+                    Alimentos para Perros
+                </h2>
+                <section class="gallery_containerGrid">
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_perros/alimentos_perros/150002-removebg-preview.png' %}"
+                        alt="Maintenance Criadores Adultos x 22kg"
+                        class="gallery img-1"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_perros/alimentos_perros/156157-removebg-preview.png' %}"
+                        alt="Royal Canin Adultos Medium"
+                        class="gallery img-2"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_perros/alimentos_perros/7613038202709-3-removebg-preview.png' %}"
+                        alt="Purina Excellent Skin Care"
+                        class="gallery img-3"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_perros/alimentos_perros/mini-puppy-removebg-preview.png' %}"
+                        alt="Royal Canin Mini Puppy"
+                        class="gallery img-4"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_perros/alimentos_perros/7790187340602_01-removebg-preview.png' %}"
+                        alt="Royal Canin Adultos"
+                        class="gallery img-5"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_perros/alimentos_perros/old-prince-cordero-removebg-preview.png' %}"
+                        alt="Old Prince Adultos"
+                        class="gallery img-6"
+                    />
+                </section>
+                <p class="contactenos">
+                    Para conocer los precios de los alimentos para perros
+                    contactenos
+                    <a href="{% url 'iniciar_sesion' %}"> aquí</a>.
+                </p>
+            </section>
+
+            <!--Gatos-->
+            <div class="carrousel_de_perros">
+                <section class="carrusel-contenido" id="productos_perros">
+                    <div id="gatos_carrusel-caja">
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_gatos/cat_playing.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_gatos/cat_x_2_playing.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_gatos/cat_grey.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_gatos/cat_snow.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_gatos/cat_eyebicolor.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section class="stock_productos">
+                <h1 class="h2_food_cats" id="productos_gatos">
+                    Alimento para Gatos
+                </h1>
+                <section class="gallery_containerGrid">
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_gatos/alimentos_gatos/148066-removebg-preview.png' %}"
+                        alt="Especial Old Prince Adultos"
+                        class="gallery img-1"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_gatos/alimentos_gatos/Agility_Cat_Adultos_1000x1000.png' %}"
+                        alt="Agility Adultos"
+                        class="gallery img-2"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_gatos/alimentos_gatos/150018-removebg-preview.png' %}"
+                        alt="Purina Excellent Adultos"
+                        class="gallery img-3"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_gatos/alimentos_gatos/cats_proplan.png' %}"
+                        alt="Purina Proplan Adultos 1 a 7 años"
+                        class="gallery img-4"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_gatos/alimentos_gatos/7613287119605_1.png' %}"
+                        alt="Especial Purina Proplan Adultos"
+                        class="gallery img-5"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_gatos/alimentos_gatos/unik-removebg-preview.png' %}"
+                        alt="Especial Unik Cachorro y Adulto"
+                        class="gallery img-6"
+                    />
+                </section>
+                <p class="contactenos">
+                    Para conocer los precios de los alimentos para Gatos
+                    contactenos
+                    <a href="{% url 'iniciar_sesion' %}"> aquí</a>.
+                </p>
+            </section>
+
+            <!--Accesorios-->
+            <div class="carrousel_de_perros">
+                <section class="carrusel-contenido" id="productos_perros">
+                    <div id="gatos_carrusel-caja">
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_accesorios/cat_playing.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_accesorios/cat_x_2_playing.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_accesorios/cat_grey.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_accesorios/cat_snow.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_accesorios/cat_eyebicolor.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section class="stock_productos">
+                <h1 class="h2_food_cats" id="productos_accesorios">
+                    Accesorios
+                </h1>
+                <section class="gallery_containerGrid">
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_accesorios/accesorios/148066-removebg-preview.png' %}"
+                        alt="Especial Old Prince Adultos"
+                        class="gallery img-1"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_accesorios/accesorios/Agility_Cat_Adultos_1000x1000.png' %}"
+                        alt="Agility Adultos"
+                        class="gallery img-2"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_accesorios/accesorios/150018-removebg-preview.png' %}"
+                        alt="Purina Excellent Adultos"
+                        class="gallery img-3"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_accesorios/accesorios/cats_proplan.png' %}"
+                        alt="Purina Proplan Adultos 1 a 7 años"
+                        class="gallery img-4"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_accesorios/accesorios/7613287119605_1.png' %}"
+                        alt="Especial Purina Proplan Adultos"
+                        class="gallery img-5"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_accesorios/accesorios/unik-removebg-preview.png' %}"
+                        alt="Especial Unik Cachorro y Adulto"
+                        class="gallery img-6"
+                    />
+                </section>
+                <p class="contactenos">
+                    Para conocer los precios de los accesorios contactenos
+                    <a href="{% url 'iniciar_sesion' %}"> aquí</a>.
+                </p>
+            </section>
+
+            <!--Juguetes-->
+            <div class="carrousel_de_perros">
+                <section class="carrusel-contenido" id="productos_perros">
+                    <div id="gatos_carrusel-caja">
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_juguetes/cat_playing.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_juguetes/cat_x_2_playing.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_juguetes/cat_grey.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_juguetes/cat_snow.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                        <div class="gatos_carrusel-elemento">
+                            <img
+                                src="{% static '/core/assets/images/productos/productos_juguetes/cat_eyebicolor.jpg' %}"
+                                alt=""
+                                class="caratula"
+                            />
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section class="stock_productos">
+                <h1 class="h2_food_cats" id="productos_juguetes">Juguetes</h1>
+                <section class="gallery_containerGrid">
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_juguetes/juguetes/148066-removebg-preview.png' %}"
+                        alt="Especial Old Prince Adultos"
+                        class="gallery img-1"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_juguetes/juguetes/Agility_Cat_Adultos_1000x1000.png' %}"
+                        alt="Agility Adultos"
+                        class="gallery img-2"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_juguetes/juguetes/150018-removebg-preview.png' %}"
+                        alt="Purina Excellent Adultos"
+                        class="gallery img-3"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_juguetes/juguetes/cats_proplan.png' %}"
+                        alt="Purina Proplan Adultos 1 a 7 años"
+                        class="gallery img-4"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_juguetes/juguetes/7613287119605_1.png' %}"
+                        alt="Especial Purina Proplan Adultos"
+                        class="gallery img-5"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_juguetes/juguetes/unik-removebg-preview.png' %}"
+                        alt="Especial Unik Cachorro y Adulto"
+                        class="gallery img-6"
+                    />
+                </section>
+                <p class="contactenos">
+                    Para conocer los precios de juguetes contactenos
+                    <a href="{% url 'iniciar_sesion' %}"> aquí</a>.
+                </p>
+            </section>
+
+            <!--Ofertas-->
+            <section class="ofertas">
+                <h2 class="ofertas_text_h2" id="productos_ofertas">
+                    ¡¡¡Ofertas que no debes perderte!!! <br />
+                    ¡¡¡20% de descuentos en estos productos!!!
+                </h2>
+                <div class="gallery_containerGrid">
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_ofertas/148066-removebg-preview.png' %}"
+                        alt="Especial Old Prince Adultos"
+                        class="gallery img-1"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_ofertas/156157-removebg-preview.png' %}"
+                        alt="Royal Canin Adultos Medium"
+                        class="gallery img-2"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_ofertas/150018-removebg-preview.png' %}"
+                        alt="Purina Excellent Adultos"
+                        class="gallery img-3"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_ofertas/mini-puppy-removebg-preview.png' %}"
+                        alt="Royal Canin Mini Puppy"
+                        class="gallery img-4"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_ofertas/7613287119605_1.png' %}"
+                        alt="Especial Purina Proplan Adultos"
+                        class="gallery img-5"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/productos/productos_ofertas/old-prince-cordero-removebg-preview.png' %}"
+                        alt="Old Prince Adultos"
+                        class="gallery img-6"
+                    />
+                </div>
+            </section>
+        </main>
+{% endblock content %}
+
+{% block javascript %}
+        <script src="{% static '/core/javascript/hamburguer_menu.js' %}"></script>
+        <script src="{% static '/core/javascript/gatos.js' %}"></script>
+        <script src="{% static '/core/javascript/perros.js' %}"></script>
+{% endblock javascript %}

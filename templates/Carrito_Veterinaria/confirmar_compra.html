@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Veterinaria Asist Vet: Confirmacion de compra{% endblock titulo %}
+
+{% block css %} {% load static %}<link rel="stylesheet" href="{% static '/core/css/confirmacion_de_compra.css' %}" />{% endblock css %}
+
+{% block content %}
+
+        <main>
+            <section class="confirmacion_de_compra">
+                <div>
+                    <h2>Datos para la compra</h2>
+                    <img
+                        src="{% static '/core/assets/images/confirmacion_de_compra/bx-cart.svg' %}"
+                        alt="carrito de compras"
+                    />
+                    <img
+                        src="{% static '/core/assets/images/confirmacion_de_compra/logoasistvet.jpeg' %}"
+                        alt="logo assistvet"
+                    />
+                </div>
+                <div>
+                    <form
+                        class="formulario_confirmar_compra"
+                        action="show-data.html"
+                        target="_blank"
+                    >
+                        <div>
+                            <label for="nombre_del_cliente"
+                                >Nombre del cliente:</label
+                            >
+                            <input
+                                size="10"
+                                type="text"
+                                name="nombre_del_cliente"
+                                placeholder="Nombre Apellido"
+                            />
+                        </div>
+                        <div class="boton_radio">
+                            <label for="retiro_en_tienda"
+                                >Retiro en tienda (SI/NO):</label
+                            >
+                            <div>
+                                <div>
+                                    <input
+                                        type="radio"
+                                        name="retiro_en_tienda"
+                                        value="si"
+                                        checked
+                                    />
+                                    <span>SI</span>
+                                </div>
+                                <div>
+                                    <input
+                                        type="radio"
+                                        name="retiro_en_tienda"
+                                        value="no"
+                                    />
+                                    <span>NO</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="direccion_de_entrega"
+                                >Dirección de entrega (*):</label
+                            >
+                            <input
+                                size="10"
+                                type="text"
+                                name="direccion_de_entrega"
+                                value="Retiro en tienda"
+                            />
+                        </div>
+                        <div class="boton_radio">
+                            <label for="factura">Factura (SI/NO):</label>
+                            <div>
+                                <div>
+                                    <input
+                                        type="radio"
+                                        name="factura"
+                                        value="si"
+                                        checked
+                                    />
+                                    <span>SI</span>
+                                </div>
+                                <div>
+                                    <input
+                                        type="radio"
+                                        name="factura"
+                                        value="no"
+                                    />
+                                    <span>NO</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="CUIT">C.U.I.T. (*):</label>
+                            <input
+                                size="10"
+                                type="text"
+                                name="CUIT"
+                                value="**-********-*"
+                            />
+                        </div>
+                        <div class="metodo_de_pago">
+                            <label for="factura">Método de pago:</label>
+                            <div>
+                                <p>
+                                    <input
+                                        type="radio"
+                                        name="metodo_de_pago"
+                                        value="si"
+                                        checked
+                                    />
+                                    <span>Efectivo (10% dto.)</span>
+                                </p>
+                                <p>
+                                    <input
+                                        type="radio"
+                                        name="metodo_de_pago"
+                                        value="no"
+                                    />
+                                    <span>Tarjeta de Débito</span>
+                                </p>
+                                <p>
+                                    <input
+                                        type="radio"
+                                        name="metodo_de_pago"
+                                        value="no"
+                                    />
+                                    <span>Tarjeta de Crédito</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="boton_confirmar_compra">
+                            <div>Confirmar compra:</div>
+                            <div><button type="submit">Comprar</button></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="aclaracion">
+                    (*) Dependiendo si hay facturación o no.
+                </div>
+            </section>
+        </main>
+
+{% endblock content %}
+
+{% block javascript %}
+<script src="{% static '/core/javascript/hamburguer_menu.js' %}"></script>
+{% endblock javascript %}
+

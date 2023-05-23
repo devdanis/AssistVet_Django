@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Veterinaria AssistVet: crear empleado{% endblock titulo %}
+
+{% block css %} {% load static %}<link rel="stylesheet" href="{% static '/core/css/index.css' %}" />{% endblock css %}
+
+{% block content %}
+        <main>
+            <h2>Crear empleado</h2>
+            <div>
+                <form action="{% url 'administrador_empleados_crear_empleado' %}" method="post" novalidate>
+                    {% csrf_token %}
+                    <table>
+                        {{ empleado_form.as_table }}
+                    </table> 
+                    {% comment "" %}
+                    {% for campo in form %}
+                            <div>
+                                <label for="">{{campo.label}}</label>
+                                {{campo}}
+                            </div>
+                            <div>{{campo.errors}}</div>
+                                {% endfor %}
+                            <div>
+                            <div>
+                                <input type="submit" value="Guardar" class="btn btn-success">
+                                <a href="{% url 'administrador_empleados' %}" class="btn btn-secondary">Cancelar</a>        
+                            </div>
+                        </div>
+                    {% endcomment %} 
+                        
+                </form>
+            </div>
+        </main>
+{% endblock content %}
+
+{% block javascript %}
+<script src="{% static '/core/javascript/hamburguer_menu.js' %}"></script>
+{% endblock javascript %}
