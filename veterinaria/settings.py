@@ -12,8 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import environ
+import os
 
-env = environ.Env()
+env=environ.Env()
 environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,10 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+#SECRET_KEY = env('SECRET_KEY')
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -42,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'Administracion_Veterinaria',
+    'Carrito_Veterinaria',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +63,7 @@ ROOT_URLCONF = 'veterinaria.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,9 +83,27 @@ WSGI_APPLICATION = 'veterinaria.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    #postgre windows
+    'windows': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'veterinaria',
+        'USER': 'postgres',
+        'PASSWORD': 'gsWwKYvlg5231z6l1YMF',
+        'HOST': 'localhost',
+        'PORT': 5432,
+    },
+    #postgre linux
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env("DATABASE_NAME"),
+        'USER': env("DATABASE_USER"),
+        'PASSWORD': env("DATABASE_PASSWORD"),
+        'HOST': env("DATABASE_HOST"),
+        'PORT': env("DATABASE_PORT"),
     }
 }
 
@@ -108,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ar'
 
 TIME_ZONE = 'UTC'
 
@@ -124,7 +146,33 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#El debug true, buscar un directorio static dentro del proyecto
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+
+#esto se genera en producción y es la que deberemos 
+#crear y django ira a buscar ahi 
+#python manage.py collectstatic
+STATIC_ROOT = BASE_DIR / 'static_root'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#donde vamos a ir guardar los archivos medias debug
+MEDIA_URL = "/media/"
+#media para produccion
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+#Configuracion para el envio de email por medio de GMAIL
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env("EMAIL_HOST")
+EMAIL_PORT = env("EMAIL_PORT")
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+# Clave generada desde la configuracion de Google
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+RECIPIENT_ADDRESS = env("RECIPIENT_ADDRESS")
