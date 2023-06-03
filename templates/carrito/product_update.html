@@ -1,0 +1,26 @@
+{% extends 'carrito/base.html' %}
+
+{% block title %}Modificar Producto{% endblock %}
+
+{% block main %}
+    <div class="container mt-5">
+        <h1>Modificar Producto</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Producto: {{ product.Producto }}</label>
+            </div>
+            <div class="mb-3">
+                <label for="Descripcion" class="form-label">Descripción: {{ product.Descripcion }}</label>
+            </div>
+            <div class="mb-3">
+                <label for="Cantidad" class="form-label">Cantidad</label>
+                <input type="number" class="form-control" id="Cantidad" name="Cantidad" value="{{ product.Cantidad }}">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <div class="container mt-5">
+                <a href="{% url 'cart' %}" class="btn btn-primary">Volver</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

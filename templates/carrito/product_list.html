@@ -1,0 +1,24 @@
+{% extends 'carrito/base.html' %}
+{% load static %}
+{% block title %}AssistVet - Productos{% endblock %}
+
+{% block main %}
+    <h1 class="mt-5">Productos</h1>
+    <div class="row row-cols-1 row-cols-md-4 g-4 mt-4">
+        {% for product in products %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ product.image }}" class="card-img-top" alt="Producto" height='60%'>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text">Precio: ${{ product.price }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'product_detail' product.pk %}" class="btn btn-primary">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

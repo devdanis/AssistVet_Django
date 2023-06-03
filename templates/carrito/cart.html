@@ -1,3 +1,27 @@
 {% extends 'carrito/base.html' %}
-{% load static %}
 
+{% comment %} {% block title %}AssistVet - Carrito{% endblock %} {% endcomment %}
+
+{% block main %}
+    <h1 class="mt-5">Carrito de compras</h1>
+    <div class="row row-cols-1 row-cols-md-4 g-4 mt-4">
+        {% for product in products %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ product.Imagen }}" class="card-img-top" alt="Imagen" height='60%'>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.Producto }}</h5>
+                        <p class="card-text">{{ product.Descripcion }}</p>
+                        <p class="card-text">Precio: ${{ product.Precio }}</p>
+                        <p class="card-text">Cantidad: {{ product.Cantidad }}</p>
+                        <p class="card-text">Total: ${{ product.Total }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'product_update' product.pk %}" class="btn btn-primary">Modificar cantidad</a>
+                        <a href="{% url 'product_delete' product.pk %}" class="btn btn-danger">Eliminar del carrito</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

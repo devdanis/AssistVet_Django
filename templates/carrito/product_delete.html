@@ -1,0 +1,14 @@
+{% extends 'carrito/base.html' %}
+
+{% block title %}Eliminar Producto{% endblock %}
+
+{% block main %}
+    <div class="container mt-5">
+        <h1>Eliminar Producto</h1>
+        <p>¿Estás seguro de que deseas eliminar el producto "{{ product.name }}"?</p>
+        <form action="{% url 'product_delete' product.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+    </div>
+{% endblock %}

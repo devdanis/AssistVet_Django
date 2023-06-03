@@ -1,0 +1,29 @@
+{% extends 'carrito/base.html' %}
+
+{% comment %} {% block title %}AssistVet - Inicio{% endblock %} {% endcomment %}
+
+{% block main %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Tu Carrito</h1>
+            {% comment %} <p class="lead">Tu petshop de confianza para todas las necesidades de tus mascotas.</p> {% endcomment %}
+        </div>
+    </div>
+    <div class="container mt-5">
+        {% comment %} <h1>Bienvenido a AssistVet</h1>
+        <p>¡Tu tienda en línea para productos y servicios para mascotas!</p> {% endcomment %}
+        
+        <a href="{% url 'administration' %}" class="btn btn-primary">Ver Carrito</a>
+    </div>
+
+    {% comment %} <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Descubre nuestros productos</h2>
+                <p>Explora nuestra amplia selección de productos para tus mascotas.</p>
+                <a href="{% url 'product_list' %}" class="btn btn-primary">Ver Productos</a>
+            </div>
+
+        </div>
+    </div> {% endcomment %}
+{% endblock main %}

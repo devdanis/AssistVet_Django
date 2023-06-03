@@ -1,0 +1,50 @@
+{% extends 'carrito/base.html' %}
+
+{% block title %}AssistVet - Administración{% endblock %}
+
+{% block main %}
+    <div class="container mt-5">
+        <h1>Administración</h1>
+        <p>Area donde se crean, modifican o eliminan productos.</p>
+        
+        <h2>Crear Producto</h2>
+        <form method="post" action="{% url 'product_create' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Campos del formulario para crear un producto -->
+            <button type="submit" class="btn btn-primary">Crear Producto</button>
+        </form>
+        
+        <h2>Productos existentes</h2>
+        {% if products %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Imagen</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.description }}</td>
+                            <td>${{ product.price }}</td>
+                            <td>{{ product.stock }}</td>
+                            <td><img src="{{ product.image }}" alt="" height='50px'></td>
+                            <td>
+                                <a href="{% url 'product_update' product.pk %}" class="btn btn-primary">Modificar</a>
+                                <a href="{% url 'product_delete' product.pk %}" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No se encontraron productos.</p>
+        {% endif %}
+    </div>
+{% endblock %}
