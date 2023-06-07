@@ -7,7 +7,7 @@ class Product(models.Model):
     Descripcion = models.TextField()
     Precio = models.DecimalField(max_digits=10, decimal_places=2)
     Cantidad = models.PositiveIntegerField()
-    Imagen = models.CharField(max_length=200, default='https://www.webempresa.com/foro/wp-content/uploads/wpforo/attachments/3200/318277=80538-Sin_imagen_disponible.jpg')
+    Imagen = models.CharField(max_length=200, blank=True, default='https://www.webempresa.com/foro/wp-content/uploads/wpforo/attachments/3200/318277=80538-Sin_imagen_disponible.jpg')
     Total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     def __str__(self):

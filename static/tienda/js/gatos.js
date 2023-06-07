@@ -13,15 +13,10 @@ galleryImages.forEach(image => {
 
 const addImage = (srcImage, altImage)=>{
    galleryContainerSelect.classList.toggle('move');
-    imageContainer.src = srcImage;
+   imageContainer.src = srcImage;
    leyenda.innerHTML = altImage;
 };
 
-//  galleryContainerSelect.addEventListener('click', ()=>{
-//    galleryContainerSelect.classList.toggle('move')
-
-//  });
-
- cerrar.addEventListener('click',() =>{
+cerrar.addEventListener('click',() =>{
    galleryContainerSelect.classList.toggle('move')
 });
