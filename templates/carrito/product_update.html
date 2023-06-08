@@ -5,6 +5,7 @@
 {% block main %}
 <h1 class="mt-5">Modificar cantidad</h1>
 <form action="" method="post">
+    {% csrf_token %}
     <div class="row row-cols-1 row-cols-md-4 g-4 mt-4">
             <div class="col">
                 <div class="card h-100">

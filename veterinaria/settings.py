@@ -128,6 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 # El debug esta en true, busque el directorio static dentro de las applicacion
 STATIC_URL = '/static/'
+LOGIN_REDIRECT_URL = '/profile/'
 
 #El debug true, buscar un directorio static dentro del proyecto
 STATICFILES_DIRS = [

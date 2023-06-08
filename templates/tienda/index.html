@@ -61,8 +61,51 @@
             <h2 class="ofertas_text_h2" id="ofertas">
                 Ofertas que no debes perderte! <br> 20% de descuentos en estos alimentos!
             </h2>
-            <div>
-                <ul class="gallery_containerGrid">
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="{% static 'tienda/images/148066-removebg-preview.png' %}" alt="Especial Old Prince Adultos" class="gallery img-1">
+                        <br><span>$800</span><del><p>Precio: $1000</p></del>
+                        <button type="submit">Agregar al Carrito</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="{% static 'tienda/images/156157-removebg-preview.png' %}" alt="Royal Canin Adultos Medium" class="gallery img-2">
+                        <br><span>$1600</span><del><p>Precio: $2000</p></del>
+                        <button type="submit">Agregar al Carrito</button>
+                    </div>
+                </div>    
+                <div class="column">
+                    <div class="card">
+                        <img src="{% static 'tienda/images/150018-removebg-preview.png' %}" alt="Purina Excellent Adultos" class="gallery img-3">
+                        <br><span>$2400</span><del><p>Precio: $3000</p></del>
+                        <button type="submit">Agregar al Carrito</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="{% static 'tienda/images/mini-puppy-removebg-preview.png' %}" alt="Royal Canin Mini Puppy" class="gallery img-4">
+                        <br><span>$3200</span><del><p>Precio: $4000</p></del>
+                        <button type="submit">Agregar al Carrito</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="{% static 'tienda/images/7613287119605_1.png' %}" alt="Especial Purina Proplan Adultos" class="gallery img-5">
+                        <br><span>$4000</span><del><p>Precio: $5000</p></del>
+                        <button type="submit">Agregar al Carrito</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="{% static 'tienda/images/old-prince-cordero-removebg-preview.png' %}" alt="Old Prince Adultos" class="gallery img-6">
+                        <br><span>$4800</span><del><p>Precio: $6000</p></del>
+                        <button type="submit">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </div>
+                {% comment %} <ul class="gallery_containerGrid">
                     <li>
                         <img src="{% static 'tienda/images/148066-removebg-preview.png' %}" alt="Especial Old Prince Adultos" class="gallery img-1">
                     </li>
@@ -81,7 +124,7 @@
                     <li>
                         <img src="{% static 'tienda/images/old-prince-cordero-removebg-preview.png' %}" alt="Old Prince Adultos" class="gallery img-6">
                     </li>
-                </ul>
+                </ul> {% endcomment %}
                 <div class="cat_img-focus_container">
                     <img src="" alt="" class="cat_img-focus_img">
                     <img src="{% static 'tienda/images/bx-x.svg' %}" alt="Cerrar" class="cat_img-focus_bx-x">
@@ -90,7 +133,7 @@
                 </div>
             </div>
         </article>
-        <section class="contactanos_container" id="contactanos_container">
+        {% comment %} <section class="contactanos_container" id="contactanos_container">
             <h2 class="contactanos">Contactanos</h2>
         </section>
         <article id="form">
@@ -110,7 +153,7 @@
                     <input type="submit" value="Submit">
                 </form>
             </div>
-        </article>
+        </article> {% endcomment %}
         <article class="articulo_mapa">
             <div class="dondeestamos" id="dondeestamos">
                 <p class="dondeestamos__parrafo">Donde ubicarnos</p>

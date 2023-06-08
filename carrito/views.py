@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views import View
 from carrito.models import Product
 from carrito.forms import ProductForm
 from django.contrib import messages
@@ -29,16 +30,30 @@ def product_list(request):
 #         form = ProductForm()
 #     return render(request, 'carrito/product_create.html', {'form': form})
 
-def product_update(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    if request.method == 'POST':
-        cantidad = int(request.POST.get('Cantidad'))  # Obtén el valor de la cantidad del formulario
-        product.Cantidad = cantidad  # Actualiza el campo "Cantidad" del objeto "Product"
-        product.save()  # Guarda el objeto "Product" actualizado en la base de datos
-        messages.success(request,'Se ha editado el valor correctamente')
-        
+
+class ProductUpdateView(View):
+    def get(self, request, pk):
+        product = get_object_or_404(Product, pk=pk)
+        return render(request, 'carrito/product_update.html', {'product': product})
+
+    def post(self, request, pk):
+        product = get_object_or_404(Product, pk=pk)
+        cantidad = int(request.POST.get('Cantidad'))
+        product.Cantidad = cantidad
+        product.save()
+        messages.success(request, 'La cantidad del producto se actualizó exitosamente.')
         return redirect('cart')
-    return render(request, 'carrito/product_update.html', {'product': product})
+
+# def product_update(request, pk):
+#     product = get_object_or_404(Product, pk=pk)
+#     if request.method == 'POST':
+#         cantidad = int(request.POST.get('Cantidad'))  # Obtén el valor de la cantidad del formulario
+#         product.Cantidad = cantidad  # Actualiza el campo "Cantidad" del objeto "Product"
+#         product.save()  # Guarda el objeto "Product" actualizado en la base de datos
+#         messages.success(request,'Se ha editado el valor correctamente')
+        
+#         return redirect('cart')
+#     return render(request, 'carrito/product_update.html', {'product': product})
 
 # def product_update(request, pk):
 #     product = get_object_or_404(Product, pk=pk)

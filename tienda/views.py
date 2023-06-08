@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-
+from django.views import View
+from tienda.forms import CustomerRegistrationForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -17,6 +19,27 @@ def servicios(request):
 
 
 
+class CustomerRegistrationView(View):
+    def get(self, request):
+        form = CustomerRegistrationForm()
+        return render(request, 'tienda/customer_registration.html', locals())
+    def post(self, request):
+        form = CustomerRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Felicitaciones! Te has registrado con exito')
+        else:
+            messages.warning(request, 'Datos ingresados incorrectos')
+        return render(request, 'tienda/customer_registration.html', locals())
+        
+class ProfileView(View):
+    def get(self, request):
+        return render(request, 'tienda/profile.html', locals)
+    
+    def post(self, request):
+        return render(request, 'tienda/profile.html', locals)
+
+            
 # def home(request):
 #     return render(request,'tienda/home.html')
 

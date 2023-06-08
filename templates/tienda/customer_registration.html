@@ -1,0 +1,43 @@
+{% extends 'tienda/base.html' %}
+{% load static %}
+
+{% block main %}
+<div id='form'>
+    <div>
+        <div id='contacto'>
+            <h3>Registro nuevo cliente</h3>
+            <hr>
+
+            <form action="" method='post' novalidate >
+                {% csrf_token %}
+                {% for fm in form %}
+                    {{fm.label_tag}} {{fm}} <small>{{fm.errors|striptags}}</small>
+                    <br>
+                {% endfor %}
+                <input type="submit" value="Registrarse"><br>
+                <div>
+                    <small>
+                        Ya estas registrado?
+                        <a href="{% url 'login' %}">Loguearse aqui</a>
+                    </small>
+                </div>
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p>{{error}}</p>
+                    {% endfor %}
+                {% endif %}
+
+                {% if messages %}
+                    {% for msg in messages %}
+                        <div role='alert'>
+                            {{msg}}
+                        </div>
+                            
+                    {% endfor %}
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

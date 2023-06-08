@@ -1,8 +1,19 @@
 {% extends 'carrito/base.html' %}
-
 {% comment %} {% block title %}AssistVet - Carrito{% endblock %} {% endcomment %}
 
 {% block main %}
+    {% if messages %}
+    {% for mensaje in messages %}
+    <label>
+        <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+        <div class="alert success">
+            <span class="alertClose"></span>
+            <span class="alertText">{{ mensaje }}</span>
+            <br class="clear"/></span>
+        </div>
+    </label>
+    {% endfor %}
+    {% endif %}
     <h1 class="mt-5">Carrito de compras</h1>
     <div class="row row-cols-1 row-cols-md-4 g-4 mt-4">
         {% for product in products %}
@@ -14,7 +25,7 @@
                         <p class="card-text">{{ product.Descripcion }}</p>
                         <p class="card-text">Precio: ${{ product.Precio }}</p>
                         <p class="card-text">Cantidad: {{ product.Cantidad }}</p>
-                        <p class="card-text">Total: ${{ product.Total }}</p>
+                        {% comment %} <p class="card-text">Total: ${{ product.Total }}</p> {% endcomment %}
                     </div>
                     <div class="card-footer">
                         <a href="{% url 'product_update' product.pk %}" class="btn btn-primary">Modificar cantidad</a>
@@ -24,4 +35,6 @@
             </div>
         {% endfor %}
     </div>
+
+
 {% endblock %}
