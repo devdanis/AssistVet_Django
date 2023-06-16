@@ -43,6 +43,24 @@
                         alt="ofertas"
                 /></a>
             </div>
+            <div>
+                
+                {% comment "" %}{% if user.is_authenticated %} Usuario autenticado {% else %} Usuario no autenticado {% endif %}{% endcomment %}
+                
+                {% if user.is_authenticated %}
+                <a href="{% url 'crear_carrito_de_compras' %}"
+                    >Comprar<img
+                        src="{% static '/core/assets/images/carrito_de_compras/bx-cart.svg' %}"
+                        alt="ofertas"
+                /></a>
+                    {% else %}
+                    <a href="{% url 'iniciar_sesion' %}"
+                    >Comprar<img
+                        src="{% static '/core/assets/images/carrito_de_compras/bx-cart.svg' %}"
+                        alt="ofertas"
+                /></a>
+                    {% endif %}
+            </div>
         </section>
         <main>
             <!--Perros-->
@@ -212,7 +230,7 @@
                 <p class="contactenos">
                     Para conocer los precios de los alimentos para Gatos
                     contactenos
-                    <a href="{% url 'iniciar_sesion' %}"> aquí</a>.
+                    <a href="{% url 'crear_carrito_de_compras' %}"> aquí</a>.
                 </p>
             </section>
 
@@ -296,7 +314,7 @@
                 </section>
                 <p class="contactenos">
                     Para conocer los precios de los accesorios contactenos
-                    <a href="{% url 'iniciar_sesion' %}"> aquí</a>.
+                    <a href="{% url 'crear_carrito_de_compras' %}"> aquí</a>.
                 </p>
             </section>
 
@@ -378,7 +396,7 @@
                 </section>
                 <p class="contactenos">
                     Para conocer los precios de juguetes contactenos
-                    <a href="{% url 'iniciar_sesion' %}"> aquí</a>.
+                    <a href="{% url 'crear_carrito_de_compras' %}"> aquí</a>.
                 </p>
             </section>
 

@@ -44,8 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'Administracion_Veterinaria',
-    'Carrito_Veterinaria',
 ]
 
 MIDDLEWARE = [
@@ -176,3 +174,14 @@ EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 # Clave generada desde la configuracion de Google
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 RECIPIENT_ADDRESS = env("RECIPIENT_ADDRESS")
+
+#Modelo User
+#AUTH_USER_MODEL = 'administracion.Usuario'
+
+#LOGIN_URL ='/accounts/login/'
+
+#LOGIN_REDIRECT_URL = "inicio"
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]

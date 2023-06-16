@@ -1,0 +1,22 @@
+        <!--Grid column-->
+            <div>
+                {% comment "" %}
+                {% if mensaje %}
+                    <div role="alert">
+                        {{mensaje}}
+                    </div>
+                    
+                {% endif %}
+                {% endcomment %}
+                <form id="EmpleadoForm" name="EmpleadoForm" action="{% url 'administrador_empleados_crear_empleado' %}" method="POST">
+                    {% csrf_token %}
+                    <table>
+                        {{ formulario_crear_empleado.as_table }}
+                    </table> 
+                    <div >
+                        <button  type="submit">Enviar</button>
+                    </div>
+                </form>
+            </div>
+
+            <a href="{% url 'administrador_empleados' %}">Volver atrás</a>

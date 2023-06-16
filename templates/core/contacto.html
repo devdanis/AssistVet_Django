@@ -2,11 +2,68 @@
 
 {% block titulo %}Veterinaria AssistVet: Contacto{% endblock titulo %}
 
-{% block css %} {% load static %}<link rel="stylesheet" href="{% static '/core/css/contacto.css' %}" />{% endblock css %}
+{% block css %} 
+{% load static %}<link rel="stylesheet" href="{% static '/core/css/contacto.css' %}" />
+<style>
+    .main_contacto{
+        position: relative;
+        display: flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .h3{
+        position: absolute;
+        top: 8rem;
+        padding: 0rem 1rem 0rem 0rem;
+    }
+
+    .errorlist {
+    display: block;
+    color: #dc3545 !important;
+    font-size: 1rem;
+    padding: 1rem 0rem;
+}
+    
+    .messages, .error-message {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+        
+    .success {
+        color: #198754;
+        font-size: 1rem;
+        font-weight: 400;
+        padding: 1rem 0rem;
+        text-align: center;
+    }
+
+    .error {
+        display:block !important;
+        color: #dc3545 !important;
+        font-size: 0.6rem;
+        font-weight: 600;
+        text-align: center;
+    }
+</style>
+{% endblock css %}
 
 {% block content %}
-        <main>
-
+        <main class="main_contacto">
+            <h3 class="h3">
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            {% if message.tags == 'success' %}
+                                <li class="success">{{ message }}</li>
+                            {% endif %}
+                            {% endfor %}
+                    </ul>
+                    {% endif %}
+            </h3>
             <section class="contacto">
                 <div>
                     <h2>Contacto</h2>
@@ -14,34 +71,52 @@
                         src="{% static '/core/assets/images/contacto/logoasistvet-png.png' %}"
                         alt="logo asist vet"
                     />
+                    
                 </div>
                 <div>
-                    <form id="contact-form" name="contact-form" action="{% url 'contacto' %}" method="POST" novalidate>
+                    <form id="Contacto" name="Contacto" action="{% url 'contacto' %}" method="POST" novalidate>
                         {% csrf_token %}
                         <div>
-                            <label for="nombre_de_cliente"
-                                >Nombre y Apellido del Cleinte:
+                            <label for="nombre_del_cliente"
+                                >Nombre y Apellido del Cliente:
                             </label>
                             <input
                                 size="10"
                                 type="text"
-                                name="nombre_de_dueño"
-                                placeholder="Nombre y Apellido del dueño"
+                                name="nombre_del_cliente"
+                                placeholder="Nombre y Apellido del cliente"
                                 required
                             />
+                            {% if contactoform.nombre_del_cliente.errors %}
+                            <div class="error-message error">
+                                {% for error in contactoform.nombre_del_cliente.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
                         </div>
+                        
                         <div>
-                            <label for="email-cliente"
+                            <label for="email_cliente"
                                 >Dirección de correo electrónico:
                             </label>
                             <input
                                 size="10"
                                 type="email"
-                                name="email-cliente"
+                                name="email_cliente"
                                 placeholder="Ingrese su E-Mail:"
                                 required
                             />
+                            
+                            {% if contactoform.email_cliente.errors %}
+                            <div class="error-message error">
+                                {% for error in contactoform.email_cliente.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
                         </div>
+
                         <div>
                             <label for="telefono_cliente"
                                 >Celular/Tel.: (*)</label
@@ -51,43 +126,37 @@
                                 name="telefono_cliente"
                                 placeholder="Ingrese su Nº de Cel./Tel.:"
                             />
+                            
+                            {% if contactoform.telefono_cliente.errors %}
+                            <div class="error-message error">
+                                {% for error in contactoform.telefono_cliente.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
                         </div>
+
                         <div>
                             <label for="consulta"
                                 >Consulta a su veterinario:</label
                             >
                             <textarea
-                                name="comentarios"
+                                name="consulta"
                                 placeholder="Su consulta a Asist Vet...."
                                 rows="8"
+                                required
                             ></textarea>
-                        </div>
-                        {% comment %}
-                        <div id="boton_radio_contacto">
-                            <label for="agendar_turno"
-                                >¿Desea agendar un turno?</label
-                            >
-                            <div>
-                                <div>
-                                    <input
-                                        type="radio"
-                                        name="agendar_turno"
-                                        value="si"
-                                        checked
-                                    />
-                                    <span>SI</span>
-                                </div>
-                                <div>
-                                    <input
-                                        type="radio"
-                                        name="agendar_turno"
-                                        value="no"
-                                    />
-                                    <span>NO</span>
-                                </div>
+                            
+
+                            {% if contactoform.consulta.errors %}
+                            <div class="error-message error">
+                                {% for error in contactoform.consulta.errors %}
+                                {{ error }}
+                                {% endfor %}
                             </div>
+                            {% endif %}
                         </div>
-                        {% endcomment %}
+
                         <div>
                             <button type="submit">Consultar</button>
                         </div>
@@ -106,12 +175,6 @@
                     /></a>
                 </div>
             </section>
-
-            {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }}" role="alert">
-                        {{message}}
-                    </div>
-                {% endfor %}
         </main>
 {% endblock content %}
 

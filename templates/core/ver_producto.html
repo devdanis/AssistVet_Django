@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Veterinaria Asist Vet: Ver Productos{% endblock titulo %}
+
+{% block css %} {% load static %}<link rel="stylesheet" href="{% static '/core/css/registrarse.css' %}" />
+<style>
+    .imagen_producto{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size:0.5rem;
+    }
+
+    .empty_content_header{
+        height:10rem;
+    }
+
+    .empty_content_footer{
+        height:25rem;
+    }
+
+    .ver_producto{
+        display: flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        gap:1rem;
+    }
+
+    table {
+            border-collapse: separate;
+    }
+
+    td, th {
+            padding: 0.5rem 1rem; /* Ajusta el espaciado horizontal y vertical */
+        }
+
+</style>
+{% endblock css %}
+
+{% block content %}
+<section class="ver_producto">
+    <div class="empty_content_header"></div>
+    <h1>Ver Productos</h1>
+    
+    <form method="GET" action="{% url 'ver_producto' %}">
+        <label for="tipo_de_producto">Tipo de Producto:</label>
+        <select name="tipo_de_producto" id="tipo_de_producto">
+            <option value="">Todos</option>
+            {% for tipo in tipos_de_producto %}
+            <option value="{{ tipo }}">{{ tipo }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="marca">Marca:</label>
+        <select name="marca" id="marca">
+            <option value="">Todos</option>
+            {% for marca in marcas %}
+            <option value="{{ marca }}">{{ marca }}</option>
+            {% endfor %}
+        </select>
+        
+        <input type="submit" value="Filtrar">
+    </form>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo de Producto</th>
+                <th>Marca</th>
+                <th>Unidad</th>
+                <th>Peso del Animal</th>
+                <th>Edad del Animal</th>
+                <th>Editar producto</th>
+                <th>Eliminar producto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+            <tr>
+                <td>{{ producto.id_producto }}</td>
+                <td>{{ producto.get_tipo_de_producto_display }}</td>
+                <td>{{ producto.marca }}</td>
+                <td>{{ producto.unidad }}</td>
+                <td>{{ producto.peso_del_animal }}</td>
+                <td>{{ producto.edad_del_animal }}</td>
+                <td>
+                    <form method="POST" action="{% url 'editar_producto' producto.id_producto %}">
+                        {% csrf_token %}
+                        <button type="submit">Editar</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="POST" action="{% url 'eliminar_producto' producto.id_producto %}">
+                        {% csrf_token %}
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="empty_content_footer"></div>
+</section>
+{% endblock content %}
+
+{% block javascript %}
+        <script src="{% static '/core/javascript/hamburguer_menu.js' %}"></script>
+        <script src="{% static '/core/javascript/sumar_restar.js' %}"></script>
+{% endblock javascript %}

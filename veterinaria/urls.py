@@ -23,6 +23,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('core.urls')),
-    path('Administracion_Veterinaria/',include('Administracion_Veterinaria.urls')),
-    path('Carrito_Veterinaria/',include('Carrito_Veterinaria.urls')),
+    #path('admin1/',include('admin1.urls')),
+    #path('Administracion_Veterinaria/',include('Administracion_Veterinaria.urls')),
+    #path('Carrito_Veterinaria/',include('Carrito_Veterinaria.urls')),
+
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

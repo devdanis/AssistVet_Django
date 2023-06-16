@@ -806,3 +806,33 @@ footer section:nth-child(3) div img {
   position: absolute;
   top: -5rem;
 }/*# sourceMappingURL=contacto.css.map */
+
+.errorlist {
+    display: block;
+    color: #dc3545;
+    font-size: 1rem;
+    padding: 1rem 0rem;
+}
+    
+.messages {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+    
+.success {
+    color: #198754;
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 1rem 0rem;
+    text-align: center;
+}
+
+.error {
+    color: #dc3545;
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 1rem 0rem;
+    text-align: center;
+}

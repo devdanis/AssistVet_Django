@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Veterinaria Asist Vet: Crear Usuario del Cliente{% endblock titulo %}
+
+{% block css %} {% load static %}<link rel="stylesheet" href="{% static '/core/css/registrarse.css' %}" />{% endblock css %}
+
+{% block content %}
+        <main>
+            <section class="registrarse">
+                <div>
+                    <h2>Registrarse</h2>
+                    <img
+                        src="{% static '/core/assets/images/contacto/logoasistvet-png.png' %}"
+                        alt="logo assistvet"
+                    />
+                </div>
+                <div>
+                    <div>
+                        <form
+                            class="formulario_de_registro"
+                            action="{% url 'crear_usuario' %}" 
+                            method="POST"
+                        >
+                        {% csrf_token %}
+                            <div>
+                                Estimado cliente: el siguiente formulario es a
+                                fin de facilitar la compra del/los productos
+                                solicitado/s. Asist Vet garantiza la seguridad y
+                                la confidencialidad de los datos proporcionados
+                                por sus clientes. No se divulgará ni
+                                porporcionará estos datos a terceros.
+                            </div>
+                            <div>
+                                <label for="nombres">Nombre/s: </label>
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="nombre"
+                                    placeholder="Ingrese su nombre/s:"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label for="apellidos">Apellido/s: </label>
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="apellido"
+                                    placeholder="Ingrese su apellido/s:"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label for="dni">DNI/LE/LC/Pasaporte: </label>
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="dni"
+                                    placeholder="Ingrese su DNI/LC/LE/Pass.:"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label for="email"
+                                    >Dirección de correo electrónico:
+                                </label>
+                                <input
+                                    size="10"
+                                    type="email"
+                                    name="email"
+                                    placeholder="Ingrese su E-Mail:"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <p>
+                                    Una vez ingresados todos los datos, se
+                                    enviará un mail a la casilla de correo
+                                    proporcionada para validar los datos.
+                                </p>
+                            </div>
+                            <div>
+                                <label for="direccion"
+                                    >Dirección particular: (*)</label
+                                >
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="direccion_particular"
+                                    placeholder="Ingrese su domicilio:"
+                                />
+                            </div>
+                            <div>
+                                <label for="city">Ciudad: (*)</label>
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="ciudad"
+                                    value="Valeria del mar"
+                                />
+                            </div>
+                            <div>
+                                <label for="zipcode">Código Postal: (*)</label>
+                                <input
+                                    type="text"
+                                    name="codigo_postal"
+                                    placeholder="Ingrese su codigo postal:"
+                                />
+                            </div>
+                            <div>
+                                <label for="telefono">Celular/Tel.: (*)</label>
+                                <input
+                                    type="tel"
+                                    name="telefono"
+                                    placeholder="Ingrese su Nº de Cel/Tel:"
+                                />
+                            </div>
+                            <div>
+                                <label for="BirthDate"
+                                    >Fecha Nac.(mm/dd/yyyy): (*)</label
+                                >
+                                <input type="date" name="birthdate" />
+                            </div>
+                            <div>
+                                <label for="cuit">C.U.I.T.: (*)</label>
+                                <input
+                                    type="number"
+                                    name="CUIT"
+                                    placeholder="Ingrese su Nº de C.U.I.T.:"
+                                />
+                            </div>
+                            <div>
+                                <label for="nombre_de_usuario"
+                                    >Nombre de Usuario:
+                                </label>
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="username"
+                                    placeholder="Ingrese un nombre de usuario:"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <p>
+                                    El nombre debe tener entre 8 y 20
+                                    caracteres. Se aceptan todas las letras
+                                    (mayúsculas y minúsculas), todos los
+                                    números, y los caracteres - y _ solamente.
+                                </p>
+                            </div>
+                            <div>
+                                <label for="contraseña">Contraseña: </label>
+                                <input
+                                    type="password"
+                                    size="10"
+                                    name="password1"
+                                    placeholder="Contraseña"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <p>
+                                    La contraseña debe tener entre 6 y 10
+                                    caracteres, al menos una mayúscula, al menos
+                                    una minúscula, al menos un número y al menos
+                                    un caracter especial <br />
+                                    ( - _ + * %).
+                                </p>
+                            </div>
+                            <div>
+                                <label for="contraseña"
+                                    >Reingrese su contraseña:
+                                </label>
+                                <input
+                                    type="password"
+                                    size="10"
+                                    name="password2"
+                                    placeholder="Contraseña"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <p class="black">
+                                    (*) Campos No-Obligatorios (excepto para
+                                    facturación y/o envíos).
+                                </p>
+                            </div>
+                            <div>
+                                <button type="submit">Registrarse</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <a href="{% url 'index' %}"
+                        >Volver al Inicio de Sesión
+                    </a>
+                </div>
+            </section>
+        </main>
+{% endblock content %}
+
+{% block javascript %}
+        <script src="{% static '/core/javascript/hamburguer_menu.js' %}"></script>
+        <script src="{% static '/core/javascript/sumar_restar.js' %}"></script>
+{% endblock javascript %}

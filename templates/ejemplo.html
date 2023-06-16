@@ -1,0 +1,28 @@
+<form method="post" action="{% url 'mi-formulario' %}">
+    {% csrf_token %}
+
+    <label for="id_texto">Texto:</label>
+    <input type="text" name="texto" id="id_texto" required>
+
+    <label for="id_numero">Número:</label>
+    <input type="number" name="numero" id="id_numero" required>
+
+    <label for="id_contrasena">Contraseña:</label>
+    <input type="password" name="contrasena" id="id_contrasena" required>
+
+    <label for="id_usuario">Usuario:</label>
+    <input type="text" name="usuario" id="id_usuario" required>
+
+    <label for="id_booleano">Booleano:</label>
+    <input type="checkbox" name="booleano" id="id_booleano">
+
+    <label for="id_opciones">Opciones:</label>
+    <select name="opciones" id="id_opciones">
+        <option value="opcion1">Opción 1</option>
+        <option value="opcion2">Opción 2</option>
+    </select>
+
+    <button type="submit">Enviar</button>
+</form>
+
+

@@ -1,0 +1,305 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Veterinaria Asist Vet: Crear Usuario del Cliente{% endblock titulo %}
+
+{% block css %} {% load static %}<link rel="stylesheet" href="{% static '/core/css/registrarse.css' %}" />
+<style>
+    .imagen_producto{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size:0.5rem;
+    }
+
+</style>
+{% endblock css %}
+
+{% block content %}
+
+
+
+
+        <main>
+                <h1>Editar Producto</h1>
+
+
+            <section class="registrarse">
+                <div>
+                    <h2>Editar Producto</h2>
+                    <img
+                        src="{% static '/core/assets/images/contacto/logoasistvet-png.png' %}"
+                        alt="logo asist vet"
+                    />
+                </div>
+                <div>
+                    <div>
+                        <form
+                            class="formulario_de_registro"
+                            action="{% url 'editar_producto' %}" 
+                            method="POST"
+                            enctype="multipart/form-data"
+                        >
+                        {% csrf_token %}
+                            <div>
+                            </div>
+                            <div>
+                                <label for="tipo_de_producto">Tipo de producto: </label>
+                                <select
+                                    id="tipo_de_producto"
+                                    name="tipo_de_producto"
+                                >
+                                    <option value='1'>
+                                        <div>Alimento para perros</div>
+                                    </option>
+                                    <option value='2'>
+                                        <div>Alimento para Gatos</div>
+                                    </option>
+                                    <option value='3'>
+                                        <div>Accesorios</div>
+                                    </option>
+                                    <option value='4'>
+                                        <div>Juguetes</div>
+                                    </option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="marca">Marca: </label>
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="marca"
+                                    placeholder="Ingrese la Marca:"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label for="unidad">Unidad: </label>
+                                <select
+                                    id="unidad"
+                                    name="unidad"
+                                >
+                                    <option value='1'>
+                                        <div>Ítem</div>
+                                    </option>
+                                    <option value='2'>
+                                        <div>1 kg</div>
+                                    </option>
+                                    <option value='3'>
+                                        <div>3 kg</div>
+                                    </option>
+                                    <option value='4'>
+                                        <div>7 kg</div>
+                                    </option>
+                                    <option value='5'>
+                                        <div>15 kg</div>
+                                    </option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="peso_del_animal">Peso del Animal:</label>
+                                <input
+                                    type="number"
+                                    name="peso_del_animal"
+                                    placeholder="Ingrese el peso del animal (kg o Ítem):"
+                                />
+                            </div>
+                            <div>
+                                <label for="edad_del_animal">Edad del Animal:</label>
+                                <input
+                                    type="number"
+                                    name="edad_del_animal"
+                                    placeholder="Ingrese la edad del animal (kg o N/C):"
+                                />
+                            </div>
+                            <div>
+                                <label for="descripcion"
+                                    >Descripción del producto:</label
+                                >
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="descripcion"
+                                    placeholder="Descripcion breve:"
+                                />
+                            </div>
+                            <div>
+                                <label for="precio_de_compra">Precio de compra:</label>
+                                <input
+                                    type="number"
+                                    name="precio_de_compra"
+                                    value="0"
+                                    id="precio_de_compra"
+                                />
+                            </div>
+                            <div>
+                                <label for="precio_con_IVA">Precio con IVA:</label>
+                                <input
+                                    type="number"
+                                    name="precio_con_IVA"
+                                    id="precio_con_IVA"
+                                    readonly
+                                />
+                            </div>
+                            <div>
+                                <label for="margen_de_ganancias">Margen de ganancias (%):</label>
+                                <input
+                                    type="number"
+                                    name="margen_de_ganancias"
+                                    value="2"
+                                />
+                            </div>
+                            <div>
+                                <label for="precio_sugerido_de_venta">Precio sugerido de venta:</label>
+                                <input
+                                    type="number"
+                                    name="precio_sugerido_de_venta"
+                                    id="precio_sugerido_de_venta"
+                                    readonly
+                                />
+                            </div>
+                            <div>
+                                <label for="precio_de_venta">Precio de venta:</label>
+                                <input
+                                    type="number"
+                                    name="precio_de_venta"
+                                />
+                            </div>
+                            <div>
+                                <label for="en_oferta">En oferta 20%:</label>
+                                <input
+                                    type="checkbox"
+                                    name="en_oferta"
+                                />
+                            </div>
+                            <div>
+                                <label for="cantidad_en_stock">Cantidad en stock:</label>
+                                <input
+                                    type="number"
+                                    name="cantidad_en_stock"
+                                    value="0"
+                                />
+                            </div>
+                            <div>
+                                <label for="en_stock">En stock:</label>
+                                <input
+                                    type="checkbox"
+                                    name="en_stock"
+                                />
+                            </div>
+                            <div>
+                                <label for="alerta_bajo_stock">Alerta de baja cantidad en stock:</label>
+                                <input
+                                    type="number"
+                                    name="alerta_bajo_stock"
+                                    value="10"
+                                />
+                            </div>
+                            <div class="imagen_producto">
+                                <label for="imagen_producto">Imagen del producto:</label>
+                               
+                                    <input
+                                    class="imagen_producto"
+                                    type="file"
+                                    name="imagen_producto"
+                                    
+                                />
+                               
+                                
+                            </div>
+                            <div>
+                                <label for="nombre_del_proveedor"
+                                    >Nombre completo del proveedor:</label
+                                >
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="nombre_del_proveedor"
+                                    placeholder="Ingrese un nombre:"
+                                />
+                            </div>
+                            <div>
+                                <label for="contacto_del_proveedor"
+                                    >Nombre completo del contacto del proveedor:</label
+                                >
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="contacto_del_proveedor"
+                                    placeholder="Ingrese un nombre:"
+                                />
+                            </div>
+                            <div>
+                                <label for="telefono_proveedor">Cel./Tel. del Proveedor:</label>
+                                <input
+                                    type="number"
+                                    name="telefono_proveedor"
+                                    placeholder="Ingrese un Cel./Tel.:"
+                                />
+                            </div>
+                            <div>
+                                <label for="email_proveedor"
+                                    >E-Mail del proveedor:
+                                </label>
+                                <input
+                                    size="10"
+                                    type="email"
+                                    name="email_proveedor"
+                                    placeholder="Ingrese E-Mail del proveedor:"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <button type="submit">Editar Producto</button>
+                            </div>
+                                    <script>
+                                            // Obtener los elementos del formulario
+                                            var precioDeCompraInput = document.getElementById('precio_de_compra');
+                                            var margenDeGananciasInput = document.querySelector('input[name="margen_de_ganancias"]');
+                                            var precioConIVADisplay = document.getElementById('precio_con_IVA');
+                                            var precioSugeridoVentaDisplay = document.getElementById('precio_sugerido_de_venta');
+
+                                            // Calcular el precio con IVA y el precio sugerido de venta
+                                            function calcularPrecios() {
+                                                var precioDeCompra = parseFloat(precioDeCompraInput.value);
+                                                var margenDeGanancias = parseFloat(margenDeGananciasInput.value);
+
+                                                // Realizar los cálculos matemáticos
+                                                var precioConIVA = precioDeCompra * 1.21;
+                                                var precioSugeridoVenta = precioConIVA * margenDeGanancias;
+
+                                                // Actualizar los campos de visualización con los resultados
+                                                precioConIVADisplay.value = precioConIVA.toFixed(2);
+                                                precioSugeridoVentaDisplay.value = precioSugeridoVenta.toFixed(2);
+                                            }
+
+                                            // Asignar el valor por defecto del campo margen_de_ganancias
+                                            margenDeGananciasInput.value = '2';
+
+                                            // Escuchar el evento de cambio en los campos relevantes
+                                            precioDeCompraInput.addEventListener('input', calcularPrecios);
+                                            margenDeGananciasInput.addEventListener('input', calcularPrecios);
+                                        </script>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <a href="{% url 'index' %}"
+                        >Volver al Ver Productos
+                    </a>
+                </div>
+            </section>
+            <div>
+                <form method="POST" action="{% url 'eliminar_producto' producto.id_producto %}">
+                        {% csrf_token %}
+                        <button type="submit">Eliminar</button>
+                </form>
+            </div>
+        </main>
+        
+{% endblock content %}
+
+{% block javascript %}
+        <script src="{% static '/core/javascript/hamburguer_menu.js' %}"></script>
+        <script src="{% static '/core/javascript/sumar_restar.js' %}"></script>
+{% endblock javascript %}

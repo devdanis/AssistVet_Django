@@ -1,0 +1,379 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Veterinaria Asist Vet: Crear Usuario del Cliente{% endblock titulo %}
+
+{% block css %} {% load static %}<link rel="stylesheet" href="{% static '/core/css/registrarse.css' %}" />
+<style>
+    .main_mensajes_de_errores{
+        position: relative;
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items:center;
+    }
+
+    .mensajes_de_errores{
+        position: absolute;
+        top:8rem;
+        padding: 0rem 1rem 0rem;
+    }
+
+    .imagen_producto{
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items:center;
+        height:8rem;
+    }
+
+    .error-messages{
+        display: flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .error-messages p, .error{
+        color:#dc3545;
+        font-size:1rem;
+        text-align:center;
+        padding: 1rem 0rem;
+    }
+
+    .success {
+        color: #198754 !important;
+        font-size: 1rem;
+        font-weight: 400;
+        padding: 1rem 0rem;
+        text-align: center;
+    }
+
+</style>
+{% endblock css %}
+
+{% block content %}
+        <main class="main_mensajes_de_errores">
+                            <div class="mensajes_de_errores">
+                    {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                    {% if message.tags == 'error' %}
+                                         <li class="error">{{ message }}</li>
+                                    {% elif message.tags == 'success' %}
+                                        <li class="success">{{ message }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                </div>
+            <section class="registrarse">
+                <div>
+                    <h2>Registrarse</h2>
+                    <img
+                        src="{% static '/core/assets/images/registrarse/logoasistvet.jpeg' %}"
+                        alt="logo assistvet"
+                    />
+                </div>
+
+                <div>
+                    <div>
+                        <form
+                            id="formulario_de_registro"
+                            name="formulario_de_registro"
+                            class="formulario_de_registro"
+                            action="{% url 'crear_usuario' %}"
+                            method="post"
+                            autocomplete="off"
+                        >
+                        {% csrf_token %}
+                            <div>
+                                Estimado cliente: el siguiente formulario es a
+                                fin de facilitar la compra del/los productos
+                                solicitado/s. Asist Vet garantiza la seguridad y
+                                la confidencialidad de los datos proporcionados
+                                por sus clientes. No se divulgará ni
+                                porporcionará estos datos a terceros.
+                            </div>
+                            <div>
+                                <label for="nombre_form">Nombre/s: </label>
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="nombre_form"
+                                    placeholder="Ingrese su nombre/s:"
+                                    required
+                                />
+                                {% if persona_form.first_name.errors %}
+                            <div class="error-message">
+                                {% for error in persona_form.first_name.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <label for="apellido_form">Apellido/s: </label>
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="apellido_form"
+                                    placeholder="Ingrese su apellido/s:"
+                                    required
+                                />
+                                {% if persona_form.last_name.errors %}
+                            <div class="error-message">
+                                {% for error in persona_form.last_name.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <label for="edad">Edad: </label>
+                                <input
+                                    size="3"
+                                    type="text"
+                                    name="edad"
+                                    placeholder="Ingrese su edad en años:"
+                                    required
+                                />
+                                {% if persona_form.edad.errors %}
+                            <div class="error-message">
+                                {% for error in persona_form.edad.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <label for="email"
+                                    >Dirección de correo electrónico:
+                                </label>
+                                <input
+                                    size="10"
+                                    type="email"
+                                    name="email"
+                                    placeholder="Ingrese su E-Mail:"
+                                    required
+                                />
+                                {% if persona_form.email.errors %}
+                            <div class="error-message">
+                                {% for error in persona_form.email.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <label for="dni">DNI/LE/LC/Pasaporte: </label>
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="dni"
+                                    placeholder="Ingrese su DNI/LC/LE/Pass.:"
+                                    required
+                                />
+                                {% if persona_form.dni.errors %}
+                            <div class="error-message">
+                                {% for error in persona_form.dni.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <p>
+                                    Una vez ingresados todos los datos, se
+                                    enviará un mail a la casilla de correo
+                                    proporcionada para validar los datos.
+                                </p>
+                            </div>
+                            <div>
+                                <label for="direccion_particular"
+                                    >Dirección particular: (*)</label
+                                >
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="direccion_particular"
+                                    placeholder="Ingrese su domicilio:"
+                                />
+                                {% if persona_form.direccion_particular.errors %}
+                            <div class="error-message">
+                                {% for error in persona_form.direccion_particular.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <label for="ciudad">Ciudad: (*)</label>
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="ciudad"
+                                    value="Valeria del mar"
+                                />
+                                {% if persona_form.ciudad.errors %}
+                            <div class="error-message">
+                                {% for error in persona_form.ciudad.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <label for="codigo_postal">Código Postal: (*)</label>
+                                <input
+                                    type="text"
+                                    name="codigo_postal"
+                                    placeholder="Ingrese su codigo postal:"
+                                />
+                                {% if persona_form.codigo_postal.errors %}
+                            <div class="error-message">
+                                {% for error in persona_form.codigo_postal.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <label for="telefono">Celular/Tel.: (*)</label>
+                                <input
+                                    type="tel"
+                                    name="telefono"
+                                    placeholder="Ingrese su Nº de Cel/Tel:"
+                                />
+                                {% if persona_form.telefono.errors %}
+                            <div class="error-message">
+                                {% for error in persona_form.telefono.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <label for="fecha_de_nacimiento"
+                                    >Fecha Nac.(mm/dd/yyyy): (*)</label
+                                >
+                                <input type="date" name="fecha_de_nacimiento" />
+                                {% if persona_form.fecha_de_nacimiento.errors %}
+                            <div class="error-message">
+                                {% for error in persona_form.fecha_de_nacimiento.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <label for="CUIT">C.U.I.T.: (*)</label>
+                                <input
+                                    type="number"
+                                    name="CUIT"
+                                    placeholder="Ingrese su Nº de C.U.I.T.:"
+                                />
+                                {% if persona_form.CUIT.errors %}
+                            <div class="error-message">
+                                {% for error in persona_form.CUIT.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <label for="username"
+                                    >Nombre de Usuario:
+                                </label>
+                                <input
+                                    size="10"
+                                    type="text"
+                                    name="username"
+                                    placeholder="Ingrese un nombre de usuario:"
+                                    required
+                                />
+                                {% if user_form.username.errors %}
+                            <div class="error-message">
+                                {% for error in user_form.username.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <p>
+                                    El nombre debe tener entre 8 y 20
+                                    caracteres. Se aceptan todas las letras
+                                    (mayúsculas y minúsculas), todos los
+                                    números, y los caracteres - y _ solamente.
+                                </p>
+                            </div>
+                            <div>
+                                <label for="password1">Contraseña: </label>
+                                <input
+                                    type="password"
+                                    size="10"
+                                    name="password1"
+                                    placeholder="Ingrese una contraseña"
+                                    required
+                                />
+                                {% if user_form.password.errors %}
+                            <div class="error-message">
+                                {% for error in user_form.password.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <p>
+                                    La contraseña debe tener entre 6 y 10
+                                    caracteres, al menos una mayúscula, al menos
+                                    una minúscula, al menos un número y al menos
+                                    un caracter especial <br />
+                                    ( - _ + * %).
+                                </p>
+                            </div>
+                            <div>
+                                <label for="password2"
+                                    >Reingrese su contraseña:
+                                </label>
+                                <input
+                                    type="password"
+                                    size="10"
+                                    name="password2"
+                                    placeholder="Reingrese su contraseña"
+                                    required
+                                />
+                                {% if user_form.password2.errors %}
+                            <div class="error-message">
+                                {% for error in user_form.password2.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            </div>
+                            <div>
+                                <p class="black">
+                                    (*) Campos No-Obligatorios (excepto para
+                                    facturación y/o envíos).
+                                </p>
+                            </div>
+                            <div>
+                                <button type="submit">Registrarse</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <a href="{% url 'iniciar_sesion' %}"
+                        >Volver al Inicio de Sesión
+                    </a>
+                </div>
+            </section>
+        </main>
+{% endblock content %}
+
+{% block javascript %}
+        <script src="{% static '/core/javascript/hamburguer_menu.js' %}"></script>
+        <script src="{% static '/core/javascript/sumar_restar.js' %}"></script>
+{% endblock javascript %}
