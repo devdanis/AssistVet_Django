@@ -198,88 +198,132 @@ def eliminar_producto(request, id_producto):
 ################ Lógica de Negocios de la creación del "carrito de compras"  ###################
 ################ En desarrollo  ###################
 
+# @login_required
+# def crear_carrito_de_compras(request,sender, instance, created, **kwargs):
+#     if request.user.is_authenticated:
+#         user = request.user
+#         # Obtén el usuario actual
+#         if created:
+#             PersonaModel.objects.create(user=instance)
+        
+        
+
+#         # Verifica si el usuario tiene un registro en el modelo Carrito_de_ComprasModel
+#         carrito = Carrito_de_ComprasModel.objects.filter(username__user=user).first()
+
+#         if not carrito:
+#             # Si no existe un registro en Carrito_de_ComprasModel para el usuario, crea uno nuevo
+#             carrito = Carrito_de_ComprasModel.objects.create(username=user.personamodel)
+
+#         # Obtén los productos del modelo ProductoModel
+#         productos = ProductoModel.objects.all()
+
+#         # Puedes realizar cualquier otra lógica adicional aquí
+
+#         tipos_de_producto = ProductoModel.objects.values_list('tipo_de_producto', flat=True).distinct()
+#         marcas = ProductoModel.objects.values_list('marca', flat=True).distinct()
+#         unidades = ProductoModel.objects.values_list('unidad', flat=True).distinct()
+#         pesos_del_animal = ProductoModel.objects.values_list('pesos_del_animal', flat=True).distinct()
+#         edades_del_animal = ProductoModel.objects.values_list('edades_del_animal', flat=True).distinct()
+#         en_ofertas = ProductoModel.objects.values_list('en_ofertas', flat=True).distinct()
+#         precios_de_venta = ProductoModel.objects.values_list('precios_de_venta', flat=True).distinct()
+#         imagenes_producto = ProductoModel.objects.values_list('imagenes_producto', flat=True).distinct()
+
+#         tipo_de_producto = request.GET.get('tipo_de_producto') # Obtener el valor del filtro 'tipo_de_producto' de la URL
+#         marca = request.GET.get('marca') # Obtener el valor del filtro 'marca' de la URL
+#         unidad = request.GET.get('unidad') # Obtener el valor del filtro 'unidad' de la URL
+#         peso_del_animal = request.GET.get('peso_del_animal') # Obtener el valor del filtro 'peso_del_animal' de la URL
+#         edad_del_animal = request.GET.get('edad_del_animal') # Obtener el valor del filtro 'edad_del_animal' de la URL
+#         en_oferta = request.GET.get('en_oferta') # Obtener el valor del filtro 'en_oferta' de la URL
+#         precio_de_venta = request.GET.get('precio_de_venta') # Obtener el valor del filtro 'precio_de_venta' de la URL
+#         imagen_producto = request.GET.get('imagen_producto') # Obtener el valor del filtro 'imagen_producto' de la URL
+
+#         productos = ProductoModel.objects.all()
+#         # Aplicar los filtros si se proporcionan valores válidos
+#         if tipo_de_producto:
+#             productos = productos.filter(tipo_de_producto=tipo_de_producto)
+
+#         if marca:
+#             productos = productos.filter(marca=marca)
+
+#         if unidad:
+#             productos = productos.filter(unidad=unidad)
+
+#         if peso_del_animal:
+#             productos = productos.filter(peso_del_animal=peso_del_animal)
+
+#         if edad_del_animal:
+#             productos = productos.filter(edad_del_animal=edad_del_animal)
+
+#         if en_oferta:
+#             productos = productos.filter(en_oferta=en_oferta)
+        
+#         if imagen_producto:
+#             productos = productos.filter(imagen_producto=imagen_producto)
+
+#         if precio_de_venta:
+#             if precio_de_venta == 'ascendente':
+#                 productos = productos.order_by('precio_de_venta')
+#             elif precio_de_venta == 'descendente':
+#                 productos = productos.order_by('-precio_de_venta')
+        
+#         context = {
+#         'productos': productos,
+#         'tipos_de_producto': tipos_de_producto,
+#         'marcas': marcas,
+#         'unidades': unidades,
+#         'pesos_del_animal': pesos_del_animal,
+#         'edades_del_animal': edades_del_animal,
+#         'en_ofertas': en_ofertas,
+#         'precios_de_venta': precios_de_venta,
+#         'imagenes_producto': imagenes_producto
+#         }
+
+#         return render(request, 'core/crear_carrito_de_compras.html', context)
+#     else:
+#         # Si el usuario no está autenticado, redirige al inicio de sesión o muestra un mensaje de error
+#         return redirect('iniciar_sesion')
+
 @login_required
-def crear_carrito_de_compras(request,sender, instance, created, **kwargs):
-    if request.user.is_authenticated:
-        user = request.user
-        # Obtén el usuario actual
-        if created:
-            PersonaModel.objects.create(user=instance)
-        
-        
+def crear_carrito_de_compras(request):
+    user = request.user
+    
+    # Verifica si el usuario tiene un registro en el modelo PersonaModel
+    persona = PersonaModel.objects.filter(user=user).first()
 
-        # Verifica si el usuario tiene un registro en el modelo Carrito_de_ComprasModel
-        carrito = Carrito_de_ComprasModel.objects.filter(username__user=user).first()
+    if not persona:
+        # Si no existe un registro en PersonaModel para el usuario, crea uno nuevo
+        persona = PersonaModel.objects.create(user=user)
 
-        if not carrito:
-            # Si no existe un registro en Carrito_de_ComprasModel para el usuario, crea uno nuevo
-            carrito = Carrito_de_ComprasModel.objects.create(username=user.personamodel)
+    # Verifica si el usuario tiene un registro en el modelo Carrito_de_ComprasModel
+    carrito = Carrito_de_ComprasModel.objects.filter(username__user=user).first()
 
-        # Obtén los productos del modelo ProductoModel
-        productos = ProductoModel.objects.all()
+    if not carrito:
+        # Si no existe un registro en Carrito_de_ComprasModel para el usuario, crea uno nuevo
+        carrito = Carrito_de_ComprasModel.objects.create(username=persona)
 
-        # Puedes realizar cualquier otra lógica adicional aquí
+    # Obtén los productos del modelo ProductoModel
+    productos = ProductoModel.objects.all()
 
-        tipos_de_producto = ProductoModel.objects.values_list('tipo_de_producto', flat=True).distinct()
-        marcas = ProductoModel.objects.values_list('marca', flat=True).distinct()
-        unidades = ProductoModel.objects.values_list('unidad', flat=True).distinct()
-        pesos_del_animal = ProductoModel.objects.values_list('pesos_del_animal', flat=True).distinct()
-        edades_del_animal = ProductoModel.objects.values_list('edades_del_animal', flat=True).distinct()
-        en_ofertas = ProductoModel.objects.values_list('en_ofertas', flat=True).distinct()
-        precios_de_venta = ProductoModel.objects.values_list('precios_de_venta', flat=True).distinct()
-        imagenes_producto = ProductoModel.objects.values_list('imagenes_producto', flat=True).distinct()
+    # Puedes realizar cualquier otra lógica adicional aquí
 
-        tipo_de_producto = request.GET.get('tipo_de_producto') # Obtener el valor del filtro 'tipo_de_producto' de la URL
-        marca = request.GET.get('marca') # Obtener el valor del filtro 'marca' de la URL
-        unidad = request.GET.get('unidad') # Obtener el valor del filtro 'unidad' de la URL
-        peso_del_animal = request.GET.get('peso_del_animal') # Obtener el valor del filtro 'peso_del_animal' de la URL
-        edad_del_animal = request.GET.get('edad_del_animal') # Obtener el valor del filtro 'edad_del_animal' de la URL
-        en_oferta = request.GET.get('en_oferta') # Obtener el valor del filtro 'en_oferta' de la URL
-        precio_de_venta = request.GET.get('precio_de_venta') # Obtener el valor del filtro 'precio_de_venta' de la URL
-        imagen_producto = request.GET.get('imagen_producto') # Obtener el valor del filtro 'imagen_producto' de la URL
+    tipos_de_producto = ProductoModel.objects.values_list('tipo_de_producto', flat=True).distinct()
+    marcas = ProductoModel.objects.values_list('marca', flat=True).distinct()
+    unidades = ProductoModel.objects.values_list('unidad', flat=True).distinct()
+    pesos_del_animal = ProductoModel.objects.values_list('pesos_del_animal', flat=True).distinct()
+    edades_del_animal = ProductoModel.objects.values_list('edades_del_animal', flat=True).distinct()
+    en_ofertas = ProductoModel.objects.values_list('en_ofertas', flat=True).distinct()
+    precios_de_venta = ProductoModel.objects.values_list('precios_de_venta', flat=True).distinct()
+    imagenes_producto = ProductoModel.objects.values_list('imagenes_producto', flat=True).distinct()
 
-        productos = ProductoModel.objects.all()
-        # Aplicar los filtros si se proporcionan valores válidos
-        if tipo_de_producto:
-            productos = productos.filter(tipo_de_producto=tipo_de_producto)
+    tipo_de_producto = request.GET.get('tipo_de_producto') # Obtener el valor del filtro 'tipo_de_producto' de la URL
+    marca = request.GET.get('marca') # Obtener el valor del filtro 'marca' de la URL
+    unidad = request.GET.get('unidad') # Obtener el valor del filtro 'unidad' de la URL
+    peso_del_animal = request.GET.get('peso_del_animal') # Obtener el valor del filtro 'peso_del_animal' de la URL
+    edad_del_animal = request.GET.get('edad_del_animal') # Obtener el valor del filtro 'edad_del_animal' de la URL
+    en_oferta = request.GET.get('en_oferta') # Obtener el valor del filtro 'en_oferta' de la URL
+    precio_de_venta = request.GET.get('precio_de_venta') # Obtener el valor del filtro 'precio_de_venta' de la URL
+    imagen_producto = request.GET.get('imagen_producto') # Obtener el valor del filtro 'imagen_producto' de la URL
 
-        if marca:
-            productos = productos.filter(marca=marca)
-
-        if unidad:
-            productos = productos.filter(unidad=unidad)
-
-        if peso_del_animal:
-            productos = productos.filter(peso_del_animal=peso_del_animal)
-
-        if edad_del_animal:
-            productos = productos.filter(edad_del_animal=edad_del_animal)
-
-        if en_oferta:
-            productos = productos.filter(en_oferta=en_oferta)
-        
-        if imagen_producto:
-            productos = productos.filter(imagen_producto=imagen_producto)
-
-        if precio_de_venta:
-            if precio_de_venta == 'ascendente':
-                productos = productos.order_by('precio_de_venta')
-            elif precio_de_venta == 'descendente':
-                productos = productos.order_by('-precio_de_venta')
-        
-        context = {
-        'productos': productos,
-        'tipos_de_producto': tipos_de_producto,
-        'marcas': marcas,
-        'unidades': unidades,
-        'pesos_del_animal': pesos_del_animal,
-        'edades_del_animal': edades_del_animal,
-        'en_ofertas': en_ofertas,
-        'precios_de_venta': precios_de_venta,
-        'imagenes_producto': imagenes_producto
-        }
-
-        return render(request, 'core/crear_carrito_de_compras.html', context)
-    else:
-        # Si el usuario no está autenticado, redirige al inicio de sesión o muestra un mensaje de error
-        return redirect('iniciar_sesion')
+    productos = ProductoModel.objects.all()
+    # Aplicar los filtros si se proporcionan valores válidos
